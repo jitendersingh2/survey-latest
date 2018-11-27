@@ -38,6 +38,7 @@
         self.surveyConfirmation = false;
         self.printCustomizedGuide = false;
         self.hideSubmitBtn = false;
+        self.formError = false;
 
         
         /*
@@ -66,21 +67,37 @@
           } else {
             self.firstAnswers.pop();
           }
+          
+          self.handleFirstAnswersConditions();
         };
 
         self.submitFirstAnswer = function(e) {
           e.preventDefault();
-          if (self.firstAnswers.length === 3) {
-            self.showAnsweredCorrectly = true;
-          } else {
-            self.showAnsweredInCorrectly = true;
+          if (self.firstAnswers.length === 0) {
+            self.formError = true;
+            return true;
           }
+          
           self.hideSubmitBtn = true;
+          self.handleFirstAnswersConditions();
         };
 
         self.next2 = function (e) {
+          if (self.firstAnswers.length === 0) {
+            self.formError = true;
+            return true;
+          }
+          self.formError = self.firstAnswers.length === 0;
           self.secondQPage = true;
           self.hideSubmitBtn = self.firstQPage = self.secondAnsweredYes = self.secondAnsweredNo = false;
+        };
+
+        self.handleFirstAnswersConditions = function () {
+          self.formError = self.firstAnswers.length === 0;
+          if (self.hideSubmitBtn) {
+            self.showAnsweredCorrectly = self.firstAnswers.length === 3;
+            self.showAnsweredInCorrectly = self.firstAnswers.length !== 3;
+          }
         };
 
 
@@ -136,16 +153,19 @@
           } else {
             self.thirdAnswers.pop();
           }
+
+          self.handleThirdAnswersConditions();
         };
 
         self.submitThirdAnswer = function(e) {
           e.preventDefault();
-          if (self.thirdAnswers.length === 4) {
-            self.showThirdAnsweredCorrectly = true;
-          } else {
-            self.showThirdAnsweredInCorrectly = true;
+          if (self.thirdAnswers.length === 0) {
+            self.formError = true;
+            return true;
           }
+
           self.hideSubmitBtn = true;
+          self.handleThirdAnswersConditions();
         };
 
         self.previous2 = function (e) {
@@ -154,8 +174,20 @@
         };
 
         self.next4 = function (e) {
+          if (self.thirdAnswers.length === 0) {
+            self.formError = true;
+            return true;
+          }
           self.fourthQPage = true;
           self.hideSubmitBtn = self.thirdQPage = self.fourthAnsweredYes = self.fourthAnsweredNo = false;
+        };
+
+        self.handleThirdAnswersConditions = function () {
+          self.formError = self.thirdAnswers.length === 0;
+          if (self.hideSubmitBtn) {
+            self.showThirdAnsweredCorrectly = self.thirdAnswers.length === 4;
+            self.showThirdAnsweredInCorrectly = self.thirdAnswers.length !== 4;
+          }
         };
 
         
@@ -224,29 +256,26 @@
             });
           }
 
-          if (self.hideSubmitBtn) {
-            if (self.teleHealthAnswers.length === 0) {
-              self.showTeleHealthAnsweredCorrectly = self.showTeleHealthAnsweredInCorrectly = false;
-              self.hideSubmitBtn = false;
-              return true;
-            }
-            self.handleTeleHealthAnswersConditions();
-          }
+          // if (self.hideSubmitBtn) {
+          //   if (self.teleHealthAnswers.length === 0) {
+          //     self.showTeleHealthAnsweredCorrectly = self.showTeleHealthAnsweredInCorrectly = false;
+          //     self.hideSubmitBtn = false;
+          //     return true;
+          //   }
+            
+          // }
+          self.handleTeleHealthAnswersConditions();
         };
 
         self.submitTeleHealthAnswers = function(e) {
           e.preventDefault();
           if (self.teleHealthAnswers.length === 0) {
+            self.formError = true;
             return true;
           }
-          self.handleTeleHealthAnswersConditions();
+          
           self.hideSubmitBtn = true;
-        };
-
-        self.handleTeleHealthAnswersConditions = function() {
-          var isAnswerCorrect = self.teleHealthAnswers.indexOf("'Chest Pain'") === -1;
-          self.showTeleHealthAnsweredCorrectly = isAnswerCorrect;
-          self.showTeleHealthAnsweredInCorrectly = !isAnswerCorrect;
+          self.handleTeleHealthAnswersConditions();
         };
 
         self.previous4 = function (e) {
@@ -255,6 +284,10 @@
         };
 
         self.next6 = function (e) {
+          if (self.teleHealthAnswers.length === 0) {
+            self.formError = true;
+            return true;
+          }
           self.hideSubmitBtn = false;
           self.teleHealthPage = false;
           if (self.isMemberHasHealthLineBlue) {
@@ -263,6 +296,15 @@
             return true;
           }
           self.rewardPage = true;
+        };
+
+        self.handleTeleHealthAnswersConditions = function() {
+          self.formError = self.teleHealthAnswers.length === 0;
+          if (self.hideSubmitBtn) {
+            var isAnswerCorrect = self.teleHealthAnswers.length === 4 && self.teleHealthAnswers.indexOf("'Chest Pain'") === -1;
+            self.showTeleHealthAnsweredCorrectly = isAnswerCorrect;
+            self.showTeleHealthAnsweredInCorrectly = !isAnswerCorrect;
+          }
         };
 
         
@@ -279,16 +321,19 @@
           } else {
             self.healthLineBlueAnswers.pop();
           }
+
+          self.handleHealthLineBlueAnswersConditions();
         };
 
         self.submitHealthLineBlueAnswers = function(e) {
           e.preventDefault();
-          if (self.healthLineBlueAnswers.length === 4) {
-            self.showHealthLineBlueAnsweredCorrectly = true;
-          } else {
-            self.showHealthLineBlueAnsweredInCorrectly = true;
+          if (self.healthLineBlueAnswers.length === 0) {
+            self.formError = true;
+            return true;
           }
+
           self.hideSubmitBtn = true;
+          self.handleHealthLineBlueAnswersConditions();
         };
 
         self.previous5 = function (e) {
@@ -298,8 +343,20 @@
         };
 
         self.next7 = function (e) {
+          if (self.healthLineBlueAnswers.length === 0) {
+            self.formError = true;
+            return true;
+          }
           self.hideSubmitBtn = self.healthLineBluePage = false;
           self.rewardPage = true;
+        };
+
+        self.handleHealthLineBlueAnswersConditions = function () {
+          self.formError = self.healthLineBlueAnswers.length === 0;
+          if (self.hideSubmitBtn) {
+            self.showHealthLineBlueAnsweredCorrectly = self.healthLineBlueAnswers.length === 4;
+            self.showHealthLineBlueAnsweredInCorrectly = self.healthLineBlueAnswers.length !== 4;
+          }
         };
 
         

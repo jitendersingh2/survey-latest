@@ -83,6 +83,9 @@
   width: 320px;
   margin-left: 50px;
 }
+#survey-first-ques-container .form-error {
+  color: red;
+}
 #survey-first-ques-container .btn-container {
   margin-top: 20px;
 }

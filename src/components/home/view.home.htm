@@ -29,6 +29,7 @@
             <input type="checkbox" name="first_Q_1" value="'Knows your health history'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Knows your health history</span><br>
             <input type="checkbox" name="first_Q_2" value="'Helps you prevent or manage long-term conditions (like diabetes or asthma)'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Helps you prevent or manage long-term conditions (like diabetes or asthma)<br>
             <input type="checkbox" name="first_Q_3" value="'Helps you prevent or manage long-term conditions (like diabetes or asthma)'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Provides regular checkups</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container">
                 <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitFirstAnswer($event)">Next</button>
             </div>
@@ -68,7 +69,7 @@
             <input type="radio" name="routineCheckUps" value="YES" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="routineCheckUps" value="NO" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> No</span><br>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
-                <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button> -->
                 <button type="button" class="next-blue" ng-click="surveyScope.submitSecondAnswer($event)">Next</button>
             </div>
         </form>
@@ -82,7 +83,7 @@
             </p>
             <br>
             <div class="btn-container">
-                <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.next3($event)">Continue</button>
             </div>
         </div>
@@ -98,7 +99,7 @@
                 <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <div class="btn-container">
-                    <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                    <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button> -->
                     <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
                 </div>
             </form>
@@ -119,8 +120,9 @@
             <input type="checkbox" name="first_Q_2" value="'Need care when your doctor’s office is closed'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Need care when your doctor’s office is closed</span><br>
             <input type="checkbox" name="first_Q_3" value="'Need a flu shot'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Need a flu shot</span><br>
             <input type="checkbox" name="first_Q_3" value="'Have a minor health issue, like a sinus infection or the flu'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Have a minor health issue, like a sinus infection or the flu</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
-                <button type="button" class="prev-btn"  ng-click="surveyScope.previous2($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous2($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.submitThirdAnswer($event)">Next</button>
             </div>
         </form>
@@ -138,7 +140,7 @@
             </p>
             <br>
             <div class="btn-container">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous2($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous2($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.next4($event)">Continue</button>
             </div>
         </div>
@@ -152,7 +154,7 @@
             <input type="radio" name="careCenter" value="YES" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="careCenter" value="NO" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> No</span><br>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.submitFourthAnswer($event)">Next</button>
             </div>
         </form>
@@ -166,7 +168,7 @@
             </p>
             <br>
             <div class="btn-container">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.next5($event)">Continue</button>
             </div>
         </div>
@@ -181,7 +183,7 @@
                 <span class="input-text-label">Phone Number*</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <div class="btn-container">
-                    <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                    <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button> -->
                     <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
                 </div>
             </form>
@@ -206,8 +208,9 @@
             <input type="checkbox" name="telehealth" value="'Chest Pain'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Chest Pain</span><br>
             <input type="checkbox" name="telehealth" value="'Cough'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Cough</span><br>
             <input type="checkbox" name="telehealth" value="'Headache'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Headache</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.submitTeleHealthAnswers($event)">Next</button>
             </div>
         </form>
@@ -222,7 +225,7 @@
             </p>
             <br>
             <div class="btn-container">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.next6($event)">Continue</button>
             </div>
         </div>
@@ -245,8 +248,9 @@
             <input type="checkbox" name="telehealth" value="'Blue Cross NC mobile app'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Blue Cross NC mobile app</span><br>
             <input type="checkbox" name="telehealth" value="'Blue Connect'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Blue Connect<sup>SM</sup></span><br>
             <input type="checkbox" name="telehealth" value="'Benefit Booklet'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Benefit Booklet</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.submitHealthLineBlueAnswers($event)">Next</button>
             </div>
         </form>
@@ -264,7 +268,7 @@
             </p>
             <br>
             <div class="btn-container">
-                <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button>
+                <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.next7($event)">Continue</button>
             </div>
         </div>
@@ -295,7 +299,7 @@
         <br>
 
         <div class="btn-container">
-            <button type="button" class="prev-btn" ng-click="surveyScope.previous6($event)">Previous</button>
+            <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous6($event)">Previous</button> -->
             <button type="button" class="btn-blue submit-2nd-Q" ng-click="surveyScope.printCustomizedGuide()">
                 <span>Create My Quick Reference Guide</span>
             </button>

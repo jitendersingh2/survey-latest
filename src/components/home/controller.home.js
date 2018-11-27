@@ -210,7 +210,19 @@
           if (e.target.checked) {
             self.teleHealthAnswers.push(val);
           } else {
-            self.teleHealthAnswers.pop();
+            self.teleHealthAnswers = self.teleHealthAnswers.filter(function(answer){
+              return answer !== val;
+            });
+          }
+
+          if (self.hideSubmitBtn) {
+            if (self.teleHealthAnswers.length === 0) {
+              self.showTeleHealthAnsweredInCorrectly = false;
+              self.showTeleHealthAnsweredCorrectly = false;
+              self.hideSubmitBtn = false;
+              return true;
+            }
+            self.handleTeleHealthAnswersConditions();
           }
         };
 
@@ -219,12 +231,14 @@
           if (self.teleHealthAnswers.length === 0) {
             return true;
           }
-          if (self.teleHealthAnswers.indexOf('Chest Pain') === -1) {
-            self.showTeleHealthAnsweredCorrectly = true;
-          } else {
-            self.showTeleHealthAnsweredInCorrectly = true;
-          }
+          self.handleTeleHealthAnswersConditions();
           self.hideSubmitBtn = true;
+        };
+
+        self.handleTeleHealthAnswersConditions = function() {
+          var isAnswerCorrect = self.teleHealthAnswers.indexOf("'Chest Pain'") === -1;
+          self.showTeleHealthAnsweredCorrectly = isAnswerCorrect;
+          self.showTeleHealthAnsweredInCorrectly = !isAnswerCorrect;
         };
 
         self.next6 = function (e) {

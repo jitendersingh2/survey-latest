@@ -15,7 +15,7 @@
     </p>
 
     <!-- First Question -->
-    <div class="first-question" ng-if="surveyScope.firstQPage">
+    <div class="first-question" ng-show="surveyScope.firstQPage">
         <div class="sub-header-title">
             <span class="content">
                 Your regular doctor should be your first point of contact for your health needs.<br>
@@ -29,7 +29,9 @@
             <input type="checkbox" name="first_Q_1" value="'Knows your health history'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Knows your health history</span><br>
             <input type="checkbox" name="first_Q_2" value="'Helps you prevent or manage long-term conditions (like diabetes or asthma)'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Helps you prevent or manage long-term conditions (like diabetes or asthma)<br>
             <input type="checkbox" name="first_Q_3" value="'Helps you prevent or manage long-term conditions (like diabetes or asthma)'" ng-click="surveyScope.insertFirstAnswers($event)"><span class="input-label">Provides regular checkups</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitFirstAnswer($event)">Next</button>
+            <div class="btn-container">
+                <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitFirstAnswer($event)">Next</button>
+            </div>
         </form>
 
         <div class="answered-correctly" ng-if="surveyScope.showAnsweredCorrectly">
@@ -40,7 +42,9 @@
                 care partner!
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next2($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="btn-blue" ng-click="surveyScope.next2($event)">Continue</button>
+            </div>
         </div>
 
         <div class="answered-incorrectly" ng-if="surveyScope.showAnsweredInCorrectly">
@@ -50,18 +54,23 @@
                 There are many reasons why having a regular doctor is important. They know you and your health history.<br> They can also help you manage any health issues you may have. And they provide regular checkups so<br> you can stay up-to-date on vaccines, tests and other preventive care.
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next2($event)">Continue to next question</button>
+            <div class="btn-container">
+                <button type="button" class="btn-blue" ng-click="surveyScope.next2($event)">Continue to next question</button>
+            </div>
         </div>
 
     </div>
 
     <!-- Second Question -->
-    <div class="second-question" ng-if="surveyScope.secondQPage">
+    <div class="second-question" ng-show="surveyScope.secondQPage">
         <p class="header-content">Do you have a regular doctor that you go to for routine checkups?</p><br>
         <form>
             <input type="radio" name="routineCheckUps" value="YES" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="routineCheckUps" value="NO" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> No</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitSecondAnswer($event)">Next</button>
+            <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
+                <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                <button type="button" class="next-blue" ng-click="surveyScope.submitSecondAnswer($event)">Next</button>
+            </div>
         </form>
         <div ng-if="surveyScope.secondAnsweredNo">
             <br>
@@ -72,7 +81,10 @@
                 (You can also find doctors using the Blue Cross<br> NC mobile app.) Once you’ve chosen a regular doctor, add their information to the Quick Reference Guide that<br> you get after this survey.
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next3($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.next3($event)">Continue</button>
+            </div>
         </div>
         <div ng-if="surveyScope.secondAnsweredYes">
             <br>
@@ -85,13 +97,16 @@
                 <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
-                <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
+                <div class="btn-container">
+                    <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
+                    <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
+                </div>
             </form>
         </div>
     </div>
 
     <!-- Third Question -->
-    <div class="first-question" ng-if="surveyScope.thirdQPage">
+    <div class="first-question" ng-show="surveyScope.thirdQPage">
         <div class="sub-header-title">
             <span class="content">
                 Convenience care and urgent care centers see you faster and cost a lot less than the emergency room.<br> Why else would you go to a convenience care or urgent care center? (Select all that apply.)
@@ -104,7 +119,10 @@
             <input type="checkbox" name="first_Q_2" value="'Need care when your doctor’s office is closed'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Need care when your doctor’s office is closed</span><br>
             <input type="checkbox" name="first_Q_3" value="'Need a flu shot'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Need a flu shot</span><br>
             <input type="checkbox" name="first_Q_3" value="'Have a minor health issue, like a sinus infection or the flu'" ng-click="surveyScope.selectThirdAnswers($event)"><span class="input-label">Have a minor health issue, like a sinus infection or the flu</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitThirdAnswer($event)">Next</button>
+            <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
+                <button type="button" class="prev-btn"  ng-click="surveyScope.previous2($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.submitThirdAnswer($event)">Next</button>
+            </div>
         </form>
 
         <div class="answered-correctly" ng-if="surveyScope.showThirdAnsweredCorrectly || surveyScope.showThirdAnsweredInCorrectly">
@@ -119,18 +137,24 @@
                 get your yearly flu shot. And they can save you a lot of time and money<br> compared to a trip to the ER.
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next4($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous2($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.next4($event)">Continue</button>
+            </div>
         </div>
 
     </div>
 
     <!-- Fourth Question -->
-    <div class="second-question" ng-if="surveyScope.fourthQPage">
+    <div class="second-question" ng-show="surveyScope.fourthQPage">
         <p class="header-content">Do you know which urgent care center is closest to your home?</p><br>
         <form>
             <input type="radio" name="careCenter" value="YES" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="careCenter" value="NO" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> No</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitFourthAnswer($event)">Next</button>
+            <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.submitFourthAnswer($event)">Next</button>
+            </div>
         </form>
         <div ng-if="surveyScope.fourthAnsweredNo">
             <br>
@@ -141,7 +165,10 @@
                 You can always find urgent care centers wherever<br> you are by using the Blue Cross NC mobile app. Once you’ve chosen an urgent care center, add their<br> information to the Quick Reference Guide that you get after this survey.
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next5($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.next5($event)">Continue</button>
+            </div>
         </div>
         <div ng-if="surveyScope.fourthAnsweredYes">
             <br>
@@ -153,13 +180,16 @@
                 <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <span class="input-text-label">Phone Number*</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
-                <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
+                <div class="btn-container">
+                    <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
+                    <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
+                </div>
             </form>
         </div>
     </div>
 
     <!-- Telehealth -->
-    <div class="first-question" ng-if="surveyScope.teleHealthPage">
+    <div class="first-question" ng-show="surveyScope.teleHealthPage">
         <div class="sub-header-title">
             <span class="content">
                 Did you know that you can talk to a doctor about certain health issues using your computer, smartphone or<br> tablet?
@@ -176,7 +206,10 @@
             <input type="checkbox" name="telehealth" value="'Chest Pain'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Chest Pain</span><br>
             <input type="checkbox" name="telehealth" value="'Cough'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Cough</span><br>
             <input type="checkbox" name="telehealth" value="'Headache'" ng-click="surveyScope.selectTeleHealthAnswers($event)"><span class="input-label">Headache</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitTeleHealthAnswers($event)">Next</button>
+            <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.submitTeleHealthAnswers($event)">Next</button>
+            </div>
         </form>
 
         <div class="answered-correctly" ng-if="surveyScope.showTeleHealthAnsweredCorrectly || surveyScope.showTeleHealthAnsweredInCorrectly">
@@ -188,12 +221,15 @@
                 Remember that if<br> you ever experience chest pain, you should call 911 or go to the nearest emergency room.
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next6($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous4($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.next6($event)">Continue</button>
+            </div>
         </div>
     </div>
 
     <!-- Health Line Blue -->
-    <div class="first-question" ng-if="surveyScope.healthLineBluePage">
+    <div class="first-question" ng-show="surveyScope.healthLineBluePage">
         <div class="sub-header-title">
             <span class="content">
                 Blue Cross NC has a 24/7 nurse support line, Health Line Blue, that you can call to find out where to go<br> based on your symptoms.
@@ -209,7 +245,10 @@
             <input type="checkbox" name="telehealth" value="'Blue Cross NC mobile app'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Blue Cross NC mobile app</span><br>
             <input type="checkbox" name="telehealth" value="'Blue Connect'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Blue Connect<sup>SM</sup></span><br>
             <input type="checkbox" name="telehealth" value="'Benefit Booklet'" ng-click="surveyScope.selectHealthLineBlueAnswers($event)"><span class="input-label">Benefit Booklet</span><br>
-            <button type="button" class="btn-blue" ng-if="!surveyScope.hideSubmitBtn" ng-click="surveyScope.submitHealthLineBlueAnswers($event)">Next</button>
+            <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.submitHealthLineBlueAnswers($event)">Next</button>
+            </div>
         </form>
 
         <div class="answered-correctly" ng-if="surveyScope.showHealthLineBlueAnsweredCorrectly || surveyScope.showHealthLineBlueAnsweredInCorrectly">
@@ -224,13 +263,16 @@
                 Be sure to save the number in your mobile phone so it’s handy<br> in the future!
             </p>
             <br>
-            <button type="button" class="btn-blue" ng-click="surveyScope.next7($event)">Continue</button>
+            <div class="btn-container">
+                <button type="button" class="prev-btn" ng-click="surveyScope.previous5($event)">Previous</button>
+                <button type="button" class="btn-blue" ng-click="surveyScope.next7($event)">Continue</button>
+            </div>
         </div>
 
     </div>
 
     <!-- Rewards -->
-    <div class="second-question" ng-if="surveyScope.rewardPage">
+    <div class="second-question" ng-show="surveyScope.rewardPage">
 
         <p class="header finish-header">Your Doctor</p>
         <p>Here is the doctor information you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
@@ -252,9 +294,12 @@
         </form>
         <br>
 
-        <button type="button" class="btn-blue submit-2nd-Q" ng-click="surveyScope.printCustomizedGuide()">
-            <span>Create My Quick Reference Guide</span>
-        </button>
+        <div class="btn-container">
+            <button type="button" class="prev-btn" ng-click="surveyScope.previous6($event)">Previous</button>
+            <button type="button" class="btn-blue submit-2nd-Q" ng-click="surveyScope.printCustomizedGuide()">
+                <span>Create My Quick Reference Guide</span>
+            </button>
+        </div>
 
         <div class="survey-confirm-msg" ng-if="surveyScope.surveyConfirmation">
             <p>

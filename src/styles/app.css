@@ -83,6 +83,12 @@
   width: 320px;
   margin-left: 50px;
 }
+#survey-first-ques-container .btn-container {
+  margin-top: 20px;
+}
+#survey-first-ques-container .prev-btn {
+  margin-right: 20px;
+}
 #survey-first-ques-container button {
   border-width: 0px;
   width: 140px;
@@ -90,7 +96,6 @@
   border-radius: 5px;
   background-color: #169bd5;
   color: #fff;
-  margin-top: 20px;
 }
 #survey-first-ques-container .answered-incorrectly button {
   width: 214px;

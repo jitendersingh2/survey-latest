@@ -68,6 +68,7 @@
         <form>
             <input type="radio" name="routineCheckUps" value="YES" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="routineCheckUps" value="NO" ng-click="surveyScope.selectSecondAnswer($event)"><span class="input-label"> No</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
                 <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button> -->
                 <button type="button" class="next-blue" ng-click="surveyScope.submitSecondAnswer($event)">Next</button>
@@ -129,8 +130,8 @@
 
         <div class="answered-correctly" ng-if="surveyScope.showThirdAnsweredCorrectly || surveyScope.showThirdAnsweredInCorrectly">
             <br>
-            <b ng-if="surveyScope.showAnsweredCorrectly">Exactly!</b>
-            <b ng-if="surveyScope.showAnsweredInCorrectly">Oops — all of these are correct answers.</b>
+            <b ng-if="surveyScope.showThirdAnsweredCorrectly">Exactly!</b>
+            <b ng-if="surveyScope.showThirdAnsweredInCorrectly">Oops — all of these are correct answers.</b>
             <p>
                 Convenience care and urgent care centers are great options if you have a minor injury that requires
                 immediate care<br> — or if your regular doctor’s office is closed. Most offer extended hours,
@@ -153,6 +154,7 @@
         <form>
             <input type="radio" name="careCenter" value="YES" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> Yes</span><br>
             <input type="radio" name="careCenter" value="NO" ng-click="surveyScope.selectFourthAnswer($event)"><span class="input-label"> No</span><br>
+            <p class="form-error" ng-if="surveyScope.formError">Please select at least one option from the above</p>
             <div class="btn-container" ng-if="!surveyScope.hideSubmitBtn">
                 <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button> -->
                 <button type="button" class="btn-blue" ng-click="surveyScope.submitFourthAnswer($event)">Next</button>
@@ -332,29 +334,6 @@
 
             <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: darkblue;font-weight: 700;margin-bottom: 10px;">HEALTH LINE BLUE<sup>SM</sup></div>
-                    <div style="font-size: 14px;">
-                        YOUR GO-TO EXPERTS. Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
-                        symptoms at home, or direct you to the care you need. Save this number in phone for easy access!
-                    </div>
-                    <h3 style="font-weight: 600;">1-877-477-2424 (toll-free)</h3>
-                    <h3 style="font-weight: 600;margin-bottom: -5px;">24 hours a day, 7 days a week</h3>
-                </div>
-                <div style="padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: darkblue;font-weight: 700;margin-bottom: 10px;">
-                        A great call when you think you need care right away.
-                    </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
-                        CALL IF YOU:
-                    </div>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to treat your illness or injury at home</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
-                </div>
-            </div>
-
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
-                <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: darkblue;font-weight: 700;margin-bottom: 10px;">MY DOCTOR</div>
                     <div style="font-size: 14px;">
                         YOUR HEALTH CARE PARTNER. A primary doctor knows your health history-often resulting in better care over time
@@ -384,6 +363,29 @@
                     <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need a prescription or refill</p>
                     <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a long term condition like high blood pressure, diabetes or asthma</p>
                     <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to prevent problems (preventing care, like checkups or vaccines)</p>
+                </div>
+            </div>
+            
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+                <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
+                    <div style="font-size: 24px;color: darkblue;font-weight: 700;margin-bottom: 10px;">HEALTH LINE BLUE<sup>SM</sup></div>
+                    <div style="font-size: 14px;">
+                        YOUR GO-TO EXPERTS. Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
+                        symptoms at home, or direct you to the care you need. Save this number in phone for easy access!
+                    </div>
+                    <h3 style="font-weight: 600;">1-877-477-2424 (toll-free)</h3>
+                    <h3 style="font-weight: 600;margin-bottom: -5px;">24 hours a day, 7 days a week</h3>
+                </div>
+                <div style="padding: 5px;width: 50%">
+                    <div style="font-size: 16px;color: darkblue;font-weight: 700;margin-bottom: 10px;">
+                        A great call when you think you need care right away.
+                    </div>
+                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                        CALL IF YOU:
+                    </div>
+                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
+                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to treat your illness or injury at home</p>
+                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
                 </div>
             </div>
 

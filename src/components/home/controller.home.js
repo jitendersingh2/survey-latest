@@ -109,24 +109,18 @@
         self.secondAnswer = '';
         self.selectSecondAnswer = function(e) {
           self.secondAnswer = e.target.value;
-          if (self.hideSubmitBtn) {
-            self.secondAnsweredYes = self.secondAnswer === 'YES';
-            self.secondAnsweredNo = self.secondAnswer === 'NO';
-          }
+          self.handleSecondAnswersConditions();
         };
 
         self.submitSecondAnswer = function(e) {
           e.preventDefault();
           if (self.secondAnswer === "") {
+            self.formError = true;
             return true;
-          }
-          if (self.secondAnswer === "YES") {
-            self.secondAnsweredYes = true;
-          } else if (self.secondAnswer === "NO") {
-            self.secondAnsweredNo = true;
           }
 
           self.hideSubmitBtn = true;
+          self.handleSecondAnswersConditions();
         };
 
         self.previous1 = function (e) {
@@ -135,8 +129,21 @@
         };
 
         self.next3 = function (e) {
+          if (self.secondAnswer === "") {
+            self.formError = true;
+            return true;
+          }
+
           self.thirdQPage = true;
           self.hideSubmitBtn = self.secondQPage = self.showThirdAnsweredCorrectly = self.showThirdAnsweredInCorrectly = false;
+        };
+
+        self.handleSecondAnswersConditions = function () {
+          self.formError = self.secondAnswer === "";
+          if (self.hideSubmitBtn) {
+            self.secondAnsweredYes = self.secondAnswer === "YES";
+            self.secondAnsweredNo = self.secondAnswer === "NO";
+          }
         };
 
 
@@ -199,24 +206,18 @@
         self.fourthAnswer = '';
         self.selectFourthAnswer = function(e) {
           self.fourthAnswer = e.target.value;
-          if (self.hideSubmitBtn) {
-            self.fourthAnsweredYes = self.fourthAnswer === 'YES';
-            self.fourthAnsweredNo = self.fourthAnswer === 'NO';
-          }
+          self.handleFourthAnswersConditions();
         };
 
         self.submitFourthAnswer = function(e) {
           e.preventDefault();
           if (self.fourthAnswer === "") {
+            self.formError = true;
             return true;
-          }
-          if (self.fourthAnswer === "YES") {
-            self.fourthAnsweredYes = true;
-          } else if (self.fourthAnswer === "NO") {
-            self.fourthAnsweredNo = true;
           }
 
           self.hideSubmitBtn = true;
+          self.handleFourthAnswersConditions();
         };
 
         self.previous3 = function (e) {
@@ -239,6 +240,14 @@
           self.rewardPage = true;
         };
 
+        self.handleFourthAnswersConditions = function () {
+          self.formError = self.secondAnswer === "";
+          if (self.hideSubmitBtn) {
+            self.fourthAnsweredYes = self.fourthAnswer === 'YES';
+            self.fourthAnsweredNo = self.fourthAnswer === 'NO';
+          }
+        };
+
         
         /*
         * Tele Health
@@ -256,14 +265,6 @@
             });
           }
 
-          // if (self.hideSubmitBtn) {
-          //   if (self.teleHealthAnswers.length === 0) {
-          //     self.showTeleHealthAnsweredCorrectly = self.showTeleHealthAnsweredInCorrectly = false;
-          //     self.hideSubmitBtn = false;
-          //     return true;
-          //   }
-            
-          // }
           self.handleTeleHealthAnswersConditions();
         };
 

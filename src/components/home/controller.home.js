@@ -26,7 +26,10 @@
 
         self.isMemberHasTeleHealth = true;
         self.isMemberHasHealthLineBlue = true;
-        self.isMemberRewardble = true;
+        self.isMemberMdLive = true;
+        self.isMemberTelaDoc = true;
+        self.isMemberFullyInsuredGroupPolicy = true;
+        self.isMemberaASOPolicy = true;
 
         self.firstQPage = true;
         self.secondQPage = false;
@@ -49,6 +52,10 @@
             userInfo = response;
             self.isMemberHasTeleHealth = userInfo.telehealth === "true" ? true : false;
             self.isMemberHasHealthLineBlue = userInfo.healthLineBlue === "true" ? true : false;
+            self.isMemberMdLive = userInfo.mdLive === "true" ? true : false;
+            self.isMemberTelaDoc = userInfo.telaDoc === "true" ? true : false;
+            self.isMemberFullyInsuredGroupPolicy = userInfo.fullyInsuredGroup === "true" ? true : false;
+            self.isMemberaASOPolicy = userInfo.aso === "true" ? true : false;
           }, function(error) {
             console.log('error- ', error);
           });

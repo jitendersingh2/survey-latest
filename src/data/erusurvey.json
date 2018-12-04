@@ -15,7 +15,11 @@
     "ruid" : "${loggedInMember.defaultMember.ruid}",
     "userID": "$cookies.LDAPUserID",
     "telehealth": "$wo.feature.telehealth",
-    "healthLineBlue": "$wo.feature.healthLineBlue"
+    "healthLineBlue": "$wo.feature.healthLineBlue",
+    "mdLive": "$wo.feature.mdLive",
+    "telaDoc": "$wo.feature.telaDoc",
+    "fullyInsuredGroup": "$wo.defaultPolicy.fullyInsuredGroup",
+    "aso": "$wo.defaultPolicy.ASO"
 }
 #else
 {}

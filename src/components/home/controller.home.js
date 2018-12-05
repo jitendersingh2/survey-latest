@@ -31,13 +31,13 @@
         self.isMemberHasFullyInsuredGroupPolicy = true;
         self.isMemberHasASOPolicy = true;
 
-        self.firstQPage = false;
+        self.firstQPage = true;
         self.secondQPage = false;
         self.thirdQPage = false;
         self.fourthQPage = false;
         self.teleHealthPage = false;
         self.healthLineBluePage = false;
-        self.rewardPage = true;
+        self.rewardPage = false;
         self.surveyConfirmation = false;
         self.printCustomizedGuide = false;
         self.hideSubmitBtn = false;

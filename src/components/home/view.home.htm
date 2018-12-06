@@ -321,7 +321,7 @@
         height="100%" />
 
     <div id="printedCustimizedGuide0" style="display: none;">
-        <div style="font-family: Arial;margin-top: -12px;">
+        <div style="font-family: Arial;margin-top: -10px;">
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
@@ -331,13 +331,14 @@
             </div>
             <div class="header-title-1" style="font-size: 28px;color: darkgoldenrod;margin-top:-5px;">KNOW WHERE TO GO</div>
             <div class="header-title-2" style="color: deepskyblue;font-size: 24px;margin-bottom: 5px;">The right place-for the right care-at the right time</div>
-
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
+            <!-- My Doctor -->
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">MY DOCTOR</div>
-                    <div style="font-size: 14px;">
-                        YOUR HEALTH CARE PARTNER. A primary doctor knows your health history-often resulting in better care over time
-                        and better prevention of health problems in the future. You will generally save money, time and hassle as well.
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">MY DOCTOR</div>
+                    <div style="font-size: 14px;margin-bottom: -10px;">
+                        YOUR HEALTH CARE PARTNER. <span style="font-size: 12px;">A primary doctor knows your health history-often resulting in better care over time
+                        and better prevention of health problems in the future. You will generally save money, time and hassle as well.</span>
                     </div>
                     <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorName }}</span>
@@ -351,12 +352,13 @@
                     </p>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If it's not a life threatening emergency, your primary doctor is usually the best option.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have an illness, injury, pain or health issue</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need a prescription or refill</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a long term condition like high blood pressure, diabetes or asthma</p>
@@ -364,32 +366,34 @@
                 </div>
             </div>
             <!-- HLB -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasHealthLineBlue">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">HEALTH LINE BLUE<sup>SM</sup></div>
-                    <div style="font-size: 14px;">
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">HEALTH LINE BLUE<sup>SM</sup></div>
+                    <div style="font-size: 14px;margin-bottom: 0px;">
                         YOUR GO-TO EXPERTS. <span style="font-size: 12px;">Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
                         symptoms at home, or direct you to the care you need. Save this number in phone for easy access!</span>
                     </div>
                     <div style="font-weight: 600;margin-bottom: -5px;"><span style="font-size: 16px;">1-877-477-2424</span> (toll-free, available 24/7)</div>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A great call when you think you need care right away.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to treat your illness or injury at home</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
                 </div>
             </div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
             <!-- Telehealth + MDLive -->
-            <!-- <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasMdLive">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">MDLIVE® (TELEHEALTH)</div>
-                    <div style="font-size: 14px;">
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">MDLIVE® (TELEHEALTH)</div>
+                    <div style="font-size: 14px;margin-bottom: 5px;">
                         24/7 DOCTOR ACCESS. <span style="font-size: 12px;">Get a video consult with a board-certified doctor on your smartphone, tablet or PC. No appointment needed!</span>
                     </div>
                     <div style="font-weight: 700;margin-bottom: -5px;display: flex;">   
@@ -397,36 +401,41 @@
                             src="/assets/members/secure/apps/erusurvey/images/MDLIVE-icon@2x.png"
                             style="width: 40px;height: 40px;"
                             alt="MDLive">                    
-                        <div style="font-size: 14px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
+                        <div style="font-size: 12px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
                             <div>Download the</div>
                             <div>MDLIVE app</div>
                         </div>            
                         <img
                             src="/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon@2x.png"
-                            style="width: 40px;height: 40px;margin-left: 15px;"
+                            style="width: 40px;height: 40px;margin-left: 10px;"
                             alt="MDLive">                   
-                        <div style="font-size: 14px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
+                        <div style="font-size: 12px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
                             <div>Go to</div>
-                            <div><span style="color: deepskyblue;font-style: italic;">mdlive.bcbsnc.com</span></div>
+                            <div>
+                                <span style="color: deepskyblue;font-style: italic;" ng-if="surveyScope.isMemberHasFullyInsuredGroupPolicy">mdlive.bcbsnc.com</span>
+                                <span style="color: deepskyblue;font-style: italic;" ng-if="surveyScope.isMemberHasASOPolicy">mdlive.com/ncvideodoc</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A fast, cost-effective way to get care when common health problems strike.
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    </div>
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a minor issue like a cold, the flu or pink eye</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want a convenient consult at home or on the go</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is booked up</p>
                 </div>
-            </div> -->
-            <!-- Telehealth + Teladoc -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            </div>
+            <!-- Telehealth + Teladoc --> 
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasTelaDoc">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">TELADOC® (TELEHEALTH)</div>
-                    <div style="font-size: 14px;">
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">TELADOC® (TELEHEALTH)</div>
+                    <div style="font-size: 14px;margin-bottom: 5px;">
                         24/7 DOCTOR ACCESS. <span style="font-size: 12px;">Get a video consult with a board-certified doctor on your smartphone, tablet or PC. No appointment needed!</span>
                     </div>
                     <div style="font-weight: 700;margin-bottom: -5px;display: flex;">   
@@ -449,21 +458,23 @@
                     </div>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A fast, cost-effective way to get care when common health problems strike.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a minor issue like a cold, the flu or pink eye</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want a convenient consult at home or on the go</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is booked up</p>
                 </div>
             </div>
-            
-            <div style="display: inline-flex;background-color: aliceblue;">
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
+            <!-- Urgent Care -->
+            <div style="display: inline-flex;background-color: aliceblue;padding: 2px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">URGENT CARE</div>
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">URGENT CARE</div>
                     <div style="font-size: 14px;margin-bottom: -30px;">
                         YOUR BACK UP OPTION. Urgent care center can be a time and money-saver when you have non-life-threatening illnesses or
                         injuries-but you are not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
@@ -477,24 +488,30 @@
                     </p>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If your doctor care can't see you today or the office is closed, urgent care is an option for issues that can't wait.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Can't wait until your doctor is available to treat you</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a sudden injury and need a walk-in appointment</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is closed</p>
                 </div>
             </div>
-
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
+            <!-- Footer -->
             <div style="background-color: white;margin-bottom: 0px;">
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
-                    <div style="width: 95%;">
+                    <div style="width: 95%;margin-bottom: 40px;" ng-if="!surveyScope.isMemberHasHealthLineBlue">
                         Remember: If you have an issue that threatens your life or health, never wait.
                         Call 911 or go straight to the emergency room.
                     </div>
+                    <div style="width: 95%;" ng-if="surveyScope.isMemberHasHealthLineBlue">
+                            Remember: If you have an issue that threatens your life or health, never wait.
+                            Call 911 or go straight to the emergency room.
+                        </div>
                     <div style="display: inline-flex;">
                         <div style="margin-left: 5px;margin-right: 10px;">
                             <img
@@ -503,7 +520,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">bcbsnc.com/CareOptions</i>
+                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</i>
                         </div>
                     </div>
                 </div>
@@ -512,17 +529,36 @@
                     <b>This is not a medical advice. Consult a medical professional and seek assistance in an emergency.</b>
                 </div>
 
-                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue">
                     <p style="font-size: 9px; color: lightgray;">
-                        Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides the Health Line Blue program for your convenience and is not liable in any way for the goods or services received. Blue Cross NC reserves the right to discontinue or change the program at any time.
-                        Decisions regarding your care should be made with the advice of your doctor.
+                        Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides Health Line Blue for your convenience and is not liable in any way for services received. Decisions regarding your care should be made with the advice of a doctor. Blue Cross NC has contracted with an
+                        independent third-party vendor to bring you Health Line Blue — and reserves the right to discontinue or change the program at any time.
+                    </p>
+                </div>
+
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasMdLive">
+                    <p style="font-size: 9px; color: lightgray;">
+                        MDLIVE is an independent company that is solely responsible for the telehealth services it is providing. MDLIVE does not offer Blue Cross or Blue Shield products or services. Availability depends on location at the time of consultation. Telehealth services are subject to the
+                        terms and conditions of the member’s health plan, including benefits, limitations and exclusions. Telehealth services are not a substitute for emergency care. MDLIVE does not replace your primary care doctor and is not an insurance product. MDLIVE may not be available
+                        in certain states and is subject to state regulations. MDLIVE does not prescribe DEA-controlled substances and may not prescribe non-therapeutic drugs and certain other drugs which may be harmful because of their potential for abuse. MDLIVE does not guarantee
+                        patients will receive a prescription. Health care professionals using the platform have the right to deny care if based on professional judgment a case is inappropriate for telehealth or for misuse of services. MDLIVE and the MDLIVE logo are registered trademarks of
+                        MDLIVE, Inc. and may not be used without written permission. For complete terms of use, visit <i>https://welcome.mdlive.com/terms-of-use</i>.
+                    </p>
+                </div>
+
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasTelaDoc">
+                    <p style="font-size: 9px; color: lightgray;">
+                        Teladoc is an independent company that is solely responsible for the telehealth services it is providing. Teladoc does not offer Blue Cross or Blue Shield products or services. Availability depends on location at the time of consultation. Telehealth services are subject to
+                        the terms and conditions of the member’s health plan, including benefits, limitations and exclusions. Telehealth services are not a substitute for emergency care. Teladoc and the Teladoc logo are registered trademarks of Teladoc, Inc. and may not be used without written
+                        permission. Teladoc does not replace the primary care physician. Teladoc does not guarantee that a prescription will be written. Teladoc operates subject to state regulation and may not be available in certain states. Teladoc does not prescribe DEA-controlled substances,
+                        nontherapeutic drugs and certain other drugs which may be harmful because of their potential for abuse. Teladoc physicians reserve the right to deny care for potential misuse of services. For complete terms of use, visit <i>https://member.teladoc.com/terms/terms_of_use</i>.
                     </p>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
                     <p style="font-size: 9px; color: lightgray;">
-                        BLUE CROSS®, BLUE SHIELD®, the Cross and Shield symbols, and service marks are marks of the Blue Cross and Blue Shield Association, an association of independent Blue Cross and Blue Shield Plans. Blue Cross NC is an independent licensee of the Blue
-                        Cross and Blue Shield Association. U12242b, 6/17
+                        BLUE CROSS®, BLUE SHIELD®, the Cross and Shield symbols, and service marks are marks of the Blue Cross and Blue Shield Association, an association of independent Blue Cross and Blue Shield Plans. All other trade names are the property of their
+                        respective owners. Blue Cross NC is an independent licensee of the Blue Cross and Blue Shield Association. U12242b, 11/18
                     </p>
                 </div>
             </div>
@@ -540,21 +576,21 @@
             </div>
             <div class="header-title-1" style="font-size: 28px;color: darkgoldenrod;margin-top:-5px;">KNOW WHERE TO GO</div>
             <div class="header-title-2" style="color: deepskyblue;font-size: 24px;margin-bottom: 5px;">The right place-for the right care-at the right time</div>
-
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            <!-- My Doctor -->
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 5px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">MY DOCTOR</div>
-                    <div style="font-size: 14px;">
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 5px;">MY DOCTOR</div>
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         YOUR HEALTH CARE PARTNER. A primary doctor knows your health history-often resulting in better care over time
-                        and better prevention of health problems in the future. You will generally save money, time and hassle as well.
+                        and better prevention of health problems in the future. You'll generally save money, time and hassle as well.
                     </div>
-                    <p>
+                    <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorName }}</span>
                     </p>
-                    <p>
+                    <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 80%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorPhoneNumber }}</span>
                     </p>
-                    <p>
+                    <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHours }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
@@ -562,53 +598,55 @@
                     </p>
                 </div>
                 <div style="padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If it's not a life threatening emergency, your primary doctor is usually the best option.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have an illness, injury, pain or health issue</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need a prescription or refill</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a long term condition like high blood pressure, diabetes or asthma</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to prevent problems (preventing care, like checkups or vaccines)</p>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have an illness, injury, pain or health issue</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need a prescription or refill</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a long term condition like high blood pressure, diabetes or asthma</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to prevent problems (preventing care, like checkups or vaccines)</p>
                 </div>
             </div>
-            
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;">
+            <!-- HLB -->
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 5px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">HEALTH LINE BLUE<sup>SM</sup></div>
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 5px;">HEALTH LINE BLUE<sup>SM</sup></div>
                     <div style="font-size: 14px;">
                         YOUR GO-TO EXPERTS. Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
                         symptoms at home, or direct you to the care you need. Save this number in phone for easy access!
                     </div>
-                    <h3 style="font-weight: 600;">1-877-477-2424 (toll-free)</h3>
+                    <h3 style="font-weight: 600;margin-bottom: -15px;">1-877-477-2424 (toll-free)</h3>
                     <h3 style="font-weight: 600;margin-bottom: -5px;">24 hours a day, 7 days a week</h3>
                 </div>
                 <div style="padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A great call when you think you need care right away.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to treat your illness or injury at home</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Want to treat your illness or injury at home</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
                 </div>
             </div>
-
-            <div style="display: inline-flex;background-color: aliceblue;">
+            <!-- Urgent Care -->
+            <div style="display: inline-flex;background-color: aliceblue;padding: 5px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
-                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 10px;">URGENT CARE</div>
-                    <div style="font-size: 14px;">
+                    <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 5px;">URGENT CARE</div>
+                    <div style="font-size: 14px;margin-bottom: -15px;">
                         YOUR BACK UP OPTION. Urgent care center can be a time and money-saver when you have non-life-threatening illnesses or
                         injuries-but you are not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
                     </div><br>
-                    <p>
+                    <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Location: </span> <span style="display: inline-block;width: 76.8%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLocation }}</span>
                     </p>
-                    <p>
+                    <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 81%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterPhoneNumber }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
@@ -616,18 +654,19 @@
                     </p>
                 </div>
                 <div style="padding: 5px;width: 50%">
-                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 10px;">
+                    <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If your doctor care can't see you today or the office is closed, urgent care is an option for issues that can't wait.
                     </div>
-                    <div style="font-size: 14px;border-bottom: 1px solid skyblue;margin-bottom: 10px;">
+                    <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
                     </div>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Can't wait until your doctor is available to treat you</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a sudden injury and need a walk-in appointment</p>
-                    <p><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is closed</p>
+                    <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Can't wait until your doctor is available to treat you</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a sudden injury and need a walk-in appointment</p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is closed</p>
                 </div>
             </div>
-
+            <!-- Footer -->
             <div style="background-color: white;margin-bottom: 0px;">
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
                     <div style="width: 95%;">
@@ -642,7 +681,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">bcbsnc.com/CareOptions</i>
+                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</i>
                         </div>
                     </div>
                 </div>
@@ -653,15 +692,15 @@
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
                     <p style="font-size: 9px; color: lightgray;">
-                        Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides the Health Line Blue program for your convenience and is not liable in any way for the goods or services received. Blue Cross NC reserves the right to discontinue or change the program at any time.
-                        Decisions regarding your care should be made with the advice of your doctor.
+                        Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides Health Line Blue for your convenience and is not liable in any way for services received. Decisions regarding your care should be made with the advice of a doctor. Blue Cross NC has contracted with an
+                        independent third-party vendor to bring you Health Line Blue — and reserves the right to discontinue or change the program at any time.
                     </p>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
                     <p style="font-size: 9px; color: lightgray;">
                         BLUE CROSS®, BLUE SHIELD®, the Cross and Shield symbols, and service marks are marks of the Blue Cross and Blue Shield Association, an association of independent Blue Cross and Blue Shield Plans. Blue Cross NC is an independent licensee of the Blue
-                        Cross and Blue Shield Association. U12242b, 6/17
+                        Cross and Blue Shield Association. U12242a, 11/18
                     </p>
                 </div>
             </div>

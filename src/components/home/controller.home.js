@@ -23,21 +23,25 @@
       ) {
         var userInfo;
         var self = this;
-
-        self.isMemberHasTeleHealth = true;
-        self.isMemberHasHealthLineBlue = true;
-        self.isMemberHasMdLive = true;
-        self.isMemberHasTelaDoc = true;
-        self.isMemberHasFullyInsuredGroupPolicy = true;
-        self.isMemberHasASOPolicy = true;
-
-        self.firstQPage = true;
+        /*
+        * User specific info
+        */
+        self.isMemberHasTeleHealth = false;
+        self.isMemberHasHealthLineBlue = false;
+        self.isMemberHasMdLive = false;
+        self.isMemberHasTelaDoc = false;
+        self.isMemberHasFullyInsuredGroupPolicy = false;
+        self.isMemberHasASOPolicy = false;
+        /*
+        * 
+        */
+        self.firstQPage = false;
         self.secondQPage = false;
         self.thirdQPage = false;
         self.fourthQPage = false;
         self.teleHealthPage = false;
         self.healthLineBluePage = false;
-        self.rewardPage = false;
+        self.rewardPage = true;
         self.surveyConfirmation = false;
         self.printCustomizedGuide = false;
         self.hideSubmitBtn = false;
@@ -429,9 +433,15 @@
 
           // Print Quick Reference Guide PDF
           var documentId = 'pdfDocument';
-          var printedContentId = 'printedCustimizedGuide0';
+          var printedContentId0 = 'printedCustimizedGuide0';
+          var printedContentId1 = 'printedCustimizedGuide1';
           var doc = document.getElementById(documentId);
-          var printedContent = document.getElementById(printedContentId).innerHTML;
+          var printedContent;
+          if (self.isMemberHasHealthLineBlue && !self.isMemberHasTeleHealth) {
+            printedContent = document.getElementById(printedContentId1).innerHTML;
+          } else {
+            printedContent = document.getElementById(printedContentId0).innerHTML;
+          }
 
           doc.contentWindow.document.body.innerHTML = printedContent;
 

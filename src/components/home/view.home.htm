@@ -93,12 +93,14 @@
             <b>Excellent!</b>
             <p>Fill in your doctor’s information here — and we’ll add it to the Quick Reference Guide that you get after this<br> survey.</p>
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
-            <p>Fields marked with * are required.</p><br>
+            
             <form ng-submit="surveyScope.next3($event)">
                 <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <p class="input-text-label required-label">*Required</p><br>
                 <div class="btn-container">
                     <!-- <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button> -->
                     <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
@@ -179,11 +181,12 @@
             <b>Excellent!</b>
             <p>Fill in that urgent care center’s details here — and we’ll add it to the Quick Reference Guide that you get after this<br> survey.</p>
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
-            <p>Fields marked with * are required.</p><br>
             <form ng-submit="surveyScope.next5($event)">
                 <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-                <span class="input-text-label">Phone Number*</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <p class="input-text-label required-label">*Required</p><br>
                 <div class="btn-container">
                     <!-- <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button> -->
                     <button type="submit" class="btn-blue submit-2nd-Q">Submit and continue to next question</button>
@@ -283,9 +286,10 @@
         <p class="header finish-header">Your Doctor</p>
         <p>Here is the doctor information you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
         <br>
-        <form >
+        <form>
             <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
             <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
             <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
             <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
@@ -295,7 +299,8 @@
         <br>
         <form>
             <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number*</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
             <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
         <br>
@@ -344,8 +349,8 @@
                         <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorName }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 35%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorPhoneNumber }}</span>
-                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 27%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHours }}</span>
+                        <span class="input-text-label">Phone: </span><span style="display: inline-block;width: 40%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorPhoneNumber }}</span>
+                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 22%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHours }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
                         <span class="input-text-label">After-Hours #: </span> <span style="display: inline-block;width: 66.25%;border-bottom: 1px solid darkgrey;">{{ surveyScope.afterHoursNumber }}</span>
@@ -412,8 +417,8 @@
                         <div style="font-size: 12px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
                             <div>Go to</div>
                             <div>
-                                <span style="color: deepskyblue;font-style: italic;" ng-if="surveyScope.isMemberHasFullyInsuredGroupPolicy">mdlive.bcbsnc.com</span>
-                                <span style="color: deepskyblue;font-style: italic;" ng-if="surveyScope.isMemberHasASOPolicy">mdlive.com/ncvideodoc</span>
+                                <a href="https://mdlive.bcbsnc.com" style="text-decoration: none;" ng-if="surveyScope.isMemberHasFullyInsuredGroupPolicy"><span style="color: deepskyblue;font-style: italic;">mdlive.bcbsnc.com</span></a>
+                                <a href="https://mdlive.com/ncvideodoc" style="text-decoration: none;" ng-if="surveyScope.isMemberHasASOPolicy"><span style="color: deepskyblue;font-style: italic;">mdlive.com/ncvideodoc</span></a>
                             </div>
                         </div>
                     </div>
@@ -453,7 +458,7 @@
                             alt="MDLive">                   
                         <div style="font-size: 14px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
                             <div>Go to</div>
-                            <div><span style="color: deepskyblue;font-style: italic;">www.teladoc.com</span></div>
+                            <div><a href="https://www.teladoc.com" style="text-decoration: none;"><span style="color: deepskyblue;font-style: italic;">www.teladoc.com</span></a></div>
                         </div>
                     </div>
                 </div>
@@ -520,7 +525,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</i>
+                            Learn more about your opinions at <a href="https://www.BlueCrossNC.com/TheRightCare" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
                         </div>
                     </div>
                 </div>
@@ -530,33 +535,33 @@
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue">
-                    <p style="font-size: 9px; color: lightgray;">
+                    <p style="font-size: 9px; color: grey;">
                         Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides Health Line Blue for your convenience and is not liable in any way for services received. Decisions regarding your care should be made with the advice of a doctor. Blue Cross NC has contracted with an
                         independent third-party vendor to bring you Health Line Blue — and reserves the right to discontinue or change the program at any time.
                     </p>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasMdLive">
-                    <p style="font-size: 9px; color: lightgray;">
+                    <p style="font-size: 9px; color: grey;">
                         MDLIVE is an independent company that is solely responsible for the telehealth services it is providing. MDLIVE does not offer Blue Cross or Blue Shield products or services. Availability depends on location at the time of consultation. Telehealth services are subject to the
                         terms and conditions of the member’s health plan, including benefits, limitations and exclusions. Telehealth services are not a substitute for emergency care. MDLIVE does not replace your primary care doctor and is not an insurance product. MDLIVE may not be available
                         in certain states and is subject to state regulations. MDLIVE does not prescribe DEA-controlled substances and may not prescribe non-therapeutic drugs and certain other drugs which may be harmful because of their potential for abuse. MDLIVE does not guarantee
                         patients will receive a prescription. Health care professionals using the platform have the right to deny care if based on professional judgment a case is inappropriate for telehealth or for misuse of services. MDLIVE and the MDLIVE logo are registered trademarks of
-                        MDLIVE, Inc. and may not be used without written permission. For complete terms of use, visit <i>https://welcome.mdlive.com/terms-of-use</i>.
+                        MDLIVE, Inc. and may not be used without written permission. For complete terms of use, visit <a href="https://welcome.mdlive.com/terms-of-use" style="text-decoration: none;"><i style="color: grey">https://welcome.mdlive.com/terms-of-use</i></a>.
                     </p>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasTelaDoc">
-                    <p style="font-size: 9px; color: lightgray;">
+                    <p style="font-size: 9px; color: grey;">
                         Teladoc is an independent company that is solely responsible for the telehealth services it is providing. Teladoc does not offer Blue Cross or Blue Shield products or services. Availability depends on location at the time of consultation. Telehealth services are subject to
                         the terms and conditions of the member’s health plan, including benefits, limitations and exclusions. Telehealth services are not a substitute for emergency care. Teladoc and the Teladoc logo are registered trademarks of Teladoc, Inc. and may not be used without written
                         permission. Teladoc does not replace the primary care physician. Teladoc does not guarantee that a prescription will be written. Teladoc operates subject to state regulation and may not be available in certain states. Teladoc does not prescribe DEA-controlled substances,
-                        nontherapeutic drugs and certain other drugs which may be harmful because of their potential for abuse. Teladoc physicians reserve the right to deny care for potential misuse of services. For complete terms of use, visit <i>https://member.teladoc.com/terms/terms_of_use</i>.
+                        nontherapeutic drugs and certain other drugs which may be harmful because of their potential for abuse. Teladoc physicians reserve the right to deny care for potential misuse of services. For complete terms of use, visit <a href="https://welcome.mdlive.com/terms-of-use" style="text-decoration: none;"><i style="color: grey">https://member.teladoc.com/terms/terms_of_use</i></a>.
                     </p>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
-                    <p style="font-size: 9px; color: lightgray;">
+                    <p style="font-size: 9px; color: grey;">
                         BLUE CROSS®, BLUE SHIELD®, the Cross and Shield symbols, and service marks are marks of the Blue Cross and Blue Shield Association, an association of independent Blue Cross and Blue Shield Plans. All other trade names are the property of their
                         respective owners. Blue Cross NC is an independent licensee of the Blue Cross and Blue Shield Association. U12242b, 11/18
                     </p>
@@ -681,7 +686,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <i style="color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</i>
+                            Learn more about your opinions at <a href="https://www.BlueCrossNC.com/TheRightCare" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
                         </div>
                     </div>
                 </div>

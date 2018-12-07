@@ -35,17 +35,18 @@
         /*
         * 
         */
-        self.firstQPage = false;
+        self.firstQPage = true;
         self.secondQPage = false;
         self.thirdQPage = false;
         self.fourthQPage = false;
         self.teleHealthPage = false;
         self.healthLineBluePage = false;
-        self.rewardPage = true;
+        self.rewardPage = false;
         self.surveyConfirmation = false;
         self.printCustomizedGuide = false;
         self.hideSubmitBtn = false;
         self.formError = false;
+        self.phoneNumberError = false;
 
         
         /*
@@ -140,6 +141,9 @@
         };
 
         self.next3 = function (e) {
+          if (self.secondAnswer === 'YES' && !self.isPhoneNumberValid(self.doctorPhoneNumber, 0)) {
+            return true;
+          }
           if (self.secondAnswer === "") {
             self.formError = true;
             return true;
@@ -237,6 +241,9 @@
         };
 
         self.next5 = function (e) {
+          if (self.fourthAnswer === 'YES' && self.careCenterPhoneNumber && !self.isPhoneNumberValid(self.careCenterPhoneNumber, 1)) {
+            return true;
+          }
           self.hideSubmitBtn = self.fourthQPage = false;
           if (self.isMemberHasTeleHealth) {
             self.showTeleHealthAnsweredCorrectly = self.showTeleHealthAnsweredInCorrectly = false;
@@ -252,7 +259,7 @@
         };
 
         self.handleFourthAnswersConditions = function () {
-          self.formError = self.secondAnswer === "";
+          self.formError = self.fourthAnswer === "";
           if (self.hideSubmitBtn) {
             self.fourthAnsweredYes = self.fourthAnswer === 'YES';
             self.fourthAnsweredNo = self.fourthAnswer === 'NO';
@@ -392,6 +399,16 @@
 
         self.printCustomizedGuide = function() {
 
+          if (!self.isPhoneNumberValid(self.doctorPhoneNumber, 0)) {
+            return true;
+          }
+
+          console.log(self.careCenterPhoneNumber, self.isPhoneNumberValid(self.careCenterPhoneNumber, 1))
+
+          if (self.careCenterPhoneNumber && !self.isPhoneNumberValid(self.careCenterPhoneNumber, 1)) {
+            return true;
+          }
+
           self.surveyConfirmation = true;
 
           var currDate = moment().toISOString();
@@ -456,6 +473,32 @@
         self.onInputChange = function(e) {
           self[e.target.name] = e.target.value;
         };
+
+        self.isPhoneNumberValid = function (phoneNumber, idx) {
+          // if (self.secondAnswer === 'YES' || self.fourthAnswer === 'YES') {
+            var phoneNumberRegex1 = /^\+{1}(1){1}\({1}\d{3}\){1}\-{1}\d{3}\-{1}\d{4}$/;
+            var phoneNumberRegex2 = /^\({1}\d{3}\){1}\-{1}\d{3}\-{1}\d{4}$/;
+            var phoneNumberRegex3 = /^\d{10}$/;
+            // var phNo = self.secondAnswer === 'YES' ? self.doctorPhoneNumber.trim() : self.careCenterPhoneNumber.trim();
+            var phNo;
+            if (phoneNumber) {
+              phNo = phoneNumber.trim();
+            } else {
+              self['phoneNumberError'+idx] = false;
+              return true;
+            }
+            if (phoneNumberRegex1.test(phNo) || phoneNumberRegex2.test(phNo) || phoneNumberRegex3.test(phNo)) {
+              self['phoneNumberError'+idx] = false;
+              return true;
+            }
+            self['phoneNumberError'+idx] = true;
+            return false;
+          // }
+
+          // self.phoneNumberError = false;
+          // return true;
+        };
+
       }
     ]);
 })(this, window.angular);

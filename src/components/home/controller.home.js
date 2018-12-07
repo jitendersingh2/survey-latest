@@ -395,6 +395,9 @@
             self.hideSubmitBtn = self.showTeleHealthAnsweredCorrectly = self.showTeleHealthAnsweredInCorrectly = false;
             return true;
           }
+
+          self.fourthQPage = true;
+          self.hideSubmitBtn = self.fourthAnsweredYes = self.fourthAnsweredNo = false;
         };
 
         self.printCustomizedGuide = function() {
@@ -402,8 +405,6 @@
           if (!self.isPhoneNumberValid(self.doctorPhoneNumber, 0)) {
             return true;
           }
-
-          console.log(self.careCenterPhoneNumber, self.isPhoneNumberValid(self.careCenterPhoneNumber, 1))
 
           if (self.careCenterPhoneNumber && !self.isPhoneNumberValid(self.careCenterPhoneNumber, 1)) {
             return true;

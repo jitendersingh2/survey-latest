@@ -357,7 +357,7 @@
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
-                        If it's not a life threatening emergency, your primary doctor is usually the best option.
+                        If it's not a life threatening emergency, your doctor is usually the best option.
                     </div>
                     <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
@@ -530,7 +530,22 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <a href="https://www.BlueCrossNC.com/TheRightCare" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
+                            Learn more about your opinions at 
+                            <a href="https://www.bluecrossnc.com/TheRightCare" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            </a>
+                            <a href="https://www.bluecrossnc.com/GetRightCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            </a>
+                            <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasASOPolicy">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            </a>
+                            <a href="https://www.bluecrossnc.com/YouHaveOptions" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTelaDoc">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            </a>
+                            <a href="https://www.bluecrossnc.com/GoForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTelaDoc">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -608,7 +623,7 @@
                 </div>
                 <div style="padding: 5px;width: 50%">
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
-                        If it's not a life threatening emergency, your primary doctor is usually the best option.
+                        If it's not a life threatening emergency, your doctor is usually the best option.
                     </div>
                     <div style="font-size: 14px;margin-bottom: -5px;">
                         CALL IF YOU:
@@ -690,7 +705,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <a href="https://www.BlueCrossNC.com/TheRightCare" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
+                            Learn more about your opinions at <a href="https://www.bluecrossnc.com/WhereToGo" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <div id="survey-first-ques-container" class="animated fadeIn" ng-controller="homeCtrl as surveyScope">
-    <p class="header">2019 ER Utilization Activity Survey</p>
-    <p class="header-content" ng-if="!surveyScope.rewardPage">
+    <p class="header" ng-if="!surveyScope.surveyConfirmationPage">2019 ER Utilization Activity Survey</p>
+    <p class="header-content" ng-if="!surveyScope.surveyConfirmationPage && !surveyScope.rewardPage">
         Do you know when it’s best to go to an urgent care center or an emergency department? Test your knowledge<br> about all of your care options and get a personalized Quick Reference Guide.
     </p>
 
@@ -287,35 +287,40 @@
         <p>Here is the doctor information you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
-            <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
 
         <p class="header finish-header">Convenience Care & Urgent Care Centers</p>
         <p>Here is the convenience/urgent care center you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
         <br>
 
         <div class="btn-container">
             <button type="button" class="prev-btn" ng-click="surveyScope.previous6($event)">Previous</button>
             <button type="button" class="btn-blue submit-2nd-Q" ng-click="surveyScope.printCustomizedGuide()">
-                <span>Create My Quick Reference Guide</span>
+                <span>Submit and Create my Quick Reference Guide</span>
             </button>
         </div>
+    </div>
 
-        <div class="survey-confirm-msg" ng-if="surveyScope.surveyConfirmation">
-            <p>
-                Thank you. You have completed the survey. Now use your personalized Quick Reference Guide when you need it.
-            </p>
+    <!-- Thank You Page -->
+    <div ng-show="surveyScope.surveyConfirmationPage">
+        <div class="survey-confirm-msg" >
+            <p class="header-1">Know Where to Go Survey Completed</p>
+            <p class="header-2">Thank you for participating.</p>
+            <a href="#">
+                <button type="button" class="btn-blue submit-2nd-Q">Go to your Blue Connect Homepage</button>
+            </a>
         </div>
     </div>
 
@@ -326,7 +331,7 @@
         height="100%" />
 
     <div id="printedCustimizedGuide0" style="display: none;">
-        <div style="font-family: Arial;margin-top: -10px;">
+        <div style="font-family: Arial;margin-top: -10px;-webkit-print-color-adjust: exact;">
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
@@ -345,14 +350,14 @@
                         YOUR HEALTH CARE PARTNER. <span style="font-size: 12px;">Your regular doctor knows your health history—often resulting in better care over time and better prevention of health problems in the future. You’ll generally save money, time and hassle as well.</span>
                     </div>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorName }}</span>
+                        <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.docName }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Phone: </span><span style="display: inline-block;width: 40%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorPhoneNumber }}</span>
-                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 22%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHours }}</span>
+                        <span class="input-text-label">Phone: </span><span style="display: inline-block;width: 40%;border-bottom: 1px solid darkgrey;">{{ surveyScope.docPhoneNumber }}</span>
+                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 22%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHrs }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
-                        <span class="input-text-label">After-Hours #: </span> <span style="display: inline-block;width: 66.25%;border-bottom: 1px solid darkgrey;">{{ surveyScope.afterHoursNumber }}</span>
+                        <span class="input-text-label">After-Hours #: </span> <span style="display: inline-block;width: 66.25%;border-bottom: 1px solid darkgrey;">{{ surveyScope.afterHrsNo }}</span>
                     </p>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
@@ -490,11 +495,11 @@
                         injuries-but you are not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
                     </div><br>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Name/Location: </span> <span style="display: inline-block;width: 61.8%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLocation }}</span>
+                        <span class="input-text-label">Name/Location: </span> <span style="display: inline-block;width: 61.8%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLoc }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 35%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterPhoneNumber }}</span>
-                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 27%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterOpeningHours }}</span>
+                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 35%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterPhNo }}</span>
+                        &nbsp;<span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 27%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterOpeningHrs }}</span>
                     </p>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
@@ -531,20 +536,23 @@
                         </div>
                         <div>
                             Learn more about your opinions at 
-                            <a href="https://www.bluecrossnc.com/TheRightCare" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                            <a href="https://www.bluecrossnc.com/TheRightPlace" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasASOPolicy">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightPlace</span>
                             </a>
-                            <a href="https://www.bluecrossnc.com/GetRightCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                            <a href="https://www.bluecrossnc.com/TheRightCare" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                                 <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
                             </a>
                             <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasASOPolicy">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/OptionsForCare</span>
+                            </a>
+                            <a href="https://www.bluecrossnc.com/GetRightCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/GetRightCare</span>
                             </a>
                             <a href="https://www.bluecrossnc.com/YouHaveOptions" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTelaDoc">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/YouHaveOptions</span>
                             </a>
                             <a href="https://www.bluecrossnc.com/GoForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTelaDoc">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/GoForCare</span>
                             </a>
                         </div>
                     </div>
@@ -591,7 +599,7 @@
     </div>
 
     <div id="printedCustimizedGuide1" style="display: none;">
-        <div style="font-family: Arial;margin-top: -12px;">
+        <div style="font-family: Arial;margin-top: -12px;-webkit-print-color-adjust: exact;">
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
@@ -705,7 +713,7 @@
                                 alt="MouseSolid">
                         </div>
                         <div>
-                            Learn more about your opinions at <a href="https://www.bluecrossnc.com/WhereToGo" style="text-decoration: none;"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span></a>
+                            Learn more about your opinions at <a href="https://www.bluecrossnc.com/WhereToGo" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue"><span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/WhereToGO</span></a>
                         </div>
                     </div>
                 </div>

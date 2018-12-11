@@ -42,7 +42,7 @@
         self.teleHealthPage = false;
         self.healthLineBluePage = false;
         self.rewardPage = false;
-        self.surveyConfirmation = false;
+        self.surveyConfirmationPage = false;
         self.printCustomizedGuide = false;
         self.hideSubmitBtn = false;
         self.formError = false;
@@ -255,6 +255,7 @@
             self.healthLineBluePage = true;
             return true;
           }
+          self.handleFormValue();
           self.rewardPage = true;
         };
 
@@ -314,6 +315,7 @@
             self.healthLineBluePage = true;
             return true;
           }
+          self.handleFormValue();
           self.rewardPage = true;
         };
 
@@ -366,6 +368,7 @@
             self.formError = true;
             return true;
           }
+          self.handleFormValue();
           self.hideSubmitBtn = self.healthLineBluePage = false;
           self.rewardPage = true;
         };
@@ -382,6 +385,25 @@
         /*
         * Rewards
         */
+
+        self.handleFormValue = function() {
+          if (self.secondAnsweredYes) {
+            self.docName = self.doctorName;
+            self.docPhoneNumber = self.doctorPhoneNumber;
+            self.officeHrs = self.officeHours;
+            self.afterHrsNo = self.afterHoursNumber;
+          } else {
+            self.docName = self.docPhoneNumber = self.officeHrs = self.afterHrsNo = '';
+          }
+
+          if (self.fourthAnsweredYes) {
+            self.careCenterNameAndLoc = self.careCenterNameAndLocation;
+            self.careCenterPhNo = self.careCenterPhoneNumber;
+            self.careCenterOpeningHrs = self.careCenterOpeningHours;
+          } else {
+            self.careCenterNameAndLoc = self.careCenterPhNo = self.careCenterOpeningHrs = '';
+          }
+        };
 
         self.previous6 = function (e) {
           self.rewardPage = false;
@@ -410,7 +432,8 @@
             return true;
           }
 
-          self.surveyConfirmation = true;
+          self.surveyConfirmationPage = true;
+          self.rewardPage = false;
 
           var currDate = moment().toISOString();
           // TouchPoint Service POST Data
@@ -476,28 +499,21 @@
         };
 
         self.isPhoneNumberValid = function (phoneNumber, idx) {
-          // if (self.secondAnswer === 'YES' || self.fourthAnswer === 'YES') {
-            var phoneNumberRegex1 = /^\+{1}(1){1}\({1}\d{3}\){1}\-{1}\d{3}\-{1}\d{4}$/;
-            var phoneNumberRegex2 = /^\({1}\d{3}\){1}\-{1}\d{3}\-{1}\d{4}$/;
-            var phoneNumberRegex3 = /^\d{10}$/;
-            // var phNo = self.secondAnswer === 'YES' ? self.doctorPhoneNumber.trim() : self.careCenterPhoneNumber.trim();
-            var phNo;
-            if (phoneNumber) {
-              phNo = phoneNumber.trim();
-            } else {
-              self['phoneNumberError'+idx] = false;
-              return true;
-            }
-            if (phoneNumberRegex1.test(phNo) || phoneNumberRegex2.test(phNo) || phoneNumberRegex3.test(phNo)) {
-              self['phoneNumberError'+idx] = false;
-              return true;
-            }
-            self['phoneNumberError'+idx] = true;
-            return false;
-          // }
-
-          // self.phoneNumberError = false;
-          // return true;
+          var phoneNumberRegex1 = /^\d{3}\-{1}\d{3}\-{1}\d{4}$/;
+          var phoneNumberRegex2 = /^\d{10}$/;
+          var phNo;
+          if (phoneNumber) {
+            phNo = phoneNumber.trim();
+          } else {
+            self['phoneNumberError'+idx] = false;
+            return true;
+          }
+          if (phoneNumberRegex1.test(phNo) || phoneNumberRegex2.test(phNo)) {
+            self['phoneNumberError'+idx] = false;
+            return true;
+          }
+          self['phoneNumberError'+idx] = true;
+          return false;
         };
 
       }

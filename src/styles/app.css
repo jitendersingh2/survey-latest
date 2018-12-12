@@ -113,7 +113,7 @@
   width: 214px;
 }
 #survey-first-ques-container .submit-2nd-Q {
-  width: 300px;
+  width: 305px;
 }
 #survey-first-ques-container b {
   font-size: 14px;
@@ -122,10 +122,6 @@
   margin-top: 10px;
 }
 #survey-first-ques-container .survey-confirm-msg .header-1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-#survey-first-ques-container .survey-confirm-msg .header-2 {
   font-size: 14px;
   margin-top: 10px;
 }

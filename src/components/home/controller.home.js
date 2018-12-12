@@ -16,10 +16,12 @@
       "userInfoService",
       "trackFactory",
       "config",
+      "$window",
       function(
         userInfoService,
         trackFactory,
-        config
+        config,
+        $window
       ) {
         var userInfo;
         var self = this;
@@ -47,6 +49,8 @@
         self.hideSubmitBtn = false;
         self.formError = false;
         self.phoneNumberError = false;
+        self.pdfImages = [];
+        self.origin = $window.location.origin;
 
         
         /*
@@ -515,6 +519,23 @@
           self['phoneNumberError'+idx] = true;
           return false;
         };
+
+        self.preloadPDFImages = function(images) {
+          for (var i = 0; i < images.length; i++) {
+            self.pdfImages[i] = new Image()
+            self.pdfImages[i].src = images[i];
+          }
+        };
+
+        // Pre-loading PDF images
+        self.preloadPDFImages([
+          self.origin+"/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png",
+          self.origin+"/assets/members/secure/apps/erusurvey/images/MDLIVE-icon@2x.png",
+          self.origin+"/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon@2x.png",
+          self.origin+"/assets/members/secure/apps/erusurvey/images/Teladoc-icon@2x.png",
+          self.origin+"/assets/members/secure/apps/erusurvey/images/Teladoc-computer-icon@2x.png",
+          self.origin+"/assets/members/secure/apps/erusurvey/images/mouse-solid.png"
+        ]);
 
       }
     ]);

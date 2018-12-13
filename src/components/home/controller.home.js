@@ -534,7 +534,7 @@
           self.origin+"/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon@2x.png",
           self.origin+"/assets/members/secure/apps/erusurvey/images/Teladoc-icon@2x.png",
           self.origin+"/assets/members/secure/apps/erusurvey/images/Teladoc-computer-icon@2x.png",
-          self.origin+"/assets/members/secure/apps/erusurvey/images/mouse-solid.png"
+          self.origin+"/assets/members/secure/apps/erusurvey/images/online-mouse-icon@2x.png"
         ]);
 
       }

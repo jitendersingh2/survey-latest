@@ -373,7 +373,7 @@
                 </div>
             </div>
             <!-- HLB -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">HEALTH LINE BLUE<sup style="font-size: 12px;">SM</sup></div>
                     <div style="font-size: 14px;margin-bottom: 0px;">
@@ -395,10 +395,8 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have health questions</p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
-            <div style="margin-bottom: 20px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive"></div>
             <!-- Telehealth + MDLive -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">MDLIVE<sup style="font-size: 12px;">&#174;</sup> (TELEHEALTH)</div>
                     <div style="font-size: 14px;margin-bottom: 5px;">
@@ -424,7 +422,7 @@
                         <div style="font-size: 12px;color: #04506e;display: flex;flex-direction: column;margin-left: 10px;">
                             <div>Go to</div>
                             <div>
-                                <a href="https://mdlive.bcbsnc.com" style="text-decoration: none;" ng-if="surveyScope.isMemberHasFullyInsuredGroupPolicy"><span style="color: deepskyblue;font-style: italic;">mdlive.bcbsnc.com</span></a>
+                                <a href="https://mdlive.bcbsnc.com" style="text-decoration: none;"><span style="color: deepskyblue;font-style: italic;">mdlive.bcbsnc.com</span></a>
                             </div>
                         </div>
                     </div>
@@ -442,9 +440,9 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is <span style="margin-left: 17px;">booked up</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Telehealth Generic -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">TELEHEALTH</div>
                     <div style="font-size: 14px;margin-bottom: 5px;">
@@ -468,8 +466,7 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is <span style="margin-left: 17px;">booked up</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
-            <div style="margin-bottom: 20px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Urgent Care -->
             <div style="display: inline-flex;background-color: aliceblue;padding: 2px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
@@ -499,8 +496,7 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is <span style="margin-left: 17px;">closed</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue"></div>
-            <div style="margin-bottom: 20px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Footer -->
             <div style="background-color: white;margin-bottom: 0px;">
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
@@ -535,14 +531,14 @@
                     <b>This is not a medical advice. Consult a medical professional and seek assistance in an emergency.</b>
                 </div>
 
-                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive">
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                     <p style="font-size: 9px; color: grey;">
                         Blue Cross and Blue Shield of North Carolina (Blue Cross NC) provides Health Line Blue for your convenience and is not liable in any way for services received. Decisions regarding your care should be made with the advice of a doctor. Blue Cross NC has contracted with an
                         independent third-party vendor to bring you Health Line Blue — and reserves the right to discontinue or change the program at any time.
                     </p>
                 </div>
 
-                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive">
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                     <p style="font-size: 9px; color: grey;">
                         MDLIVE is an independent company that is solely responsible for the telehealth services it is providing. MDLIVE does not offer Blue Cross or Blue Shield products or services. Availability depends on location at the time of consultation. Telehealth services are subject to the
                         terms and conditions of the member’s health plan, including benefits, limitations and exclusions. Telehealth services are not a substitute for emergency care. MDLIVE does not replace your primary care doctor and is not an insurance product. MDLIVE may not be available
@@ -552,7 +548,7 @@
                     </p>
                 </div>
 
-                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive">
+                <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy">
                     <p style="font-size: 9px; color: grey;">
                         MDLIVE and Teladoc are independent companies that are solely responsible for the telehealth services they are providing and do not offer Blue Cross or Blue Shield products or services. 
                         Availability depends on location at the time of consultation. Telehealth services are subject to the terms and conditions of the member’s health plan, including benefits, limitations and exclusions. 

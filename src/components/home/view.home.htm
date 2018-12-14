@@ -10,7 +10,7 @@
     <p class="sub-header" ng-if="surveyScope.healthLineBluePage"><img src="/assets/members/secure/apps/erusurvey/images/doctor-nurse.png" alt="Doctor-Nurse Icon"> Health Line Blue<sup>SM</sup></p>
     <p class="header finish-header" ng-if="surveyScope.rewardPage">You're almost at the finish line...</p>
     <p class="header-content" ng-if="surveyScope.rewardPage">
-        Click the submit button below to complete your survey and create your personalized Quick Reference Guide. If you haven’t entered or don’t have the provider information now, you can update the information at any time.
+        Click the submit button below to complete your survey and create your personalized Quick Reference Guide. If you haven’t entered or don’t have the provider information now, you’ll get a Quick Reference Guide that you can fill out later.
     </p>
 
     <!-- First Question -->
@@ -94,8 +94,8 @@
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             
             <form ng-submit="surveyScope.next3($event)">
-                <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-                <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Doctor's Name</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
@@ -181,7 +181,7 @@
             <p>Fill in that urgent care center’s details here — and we’ll add it to the Quick Reference Guide that you get after this<br> survey.</p>
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             <form ng-submit="surveyScope.next5($event)">
-                <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
@@ -283,21 +283,21 @@
     <div class="second-question" ng-show="surveyScope.rewardPage">
 
         <p class="header finish-header">Your Doctor</p>
-        <p>Here is the doctor information you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
+        <p>Feel free to edit, if needed prior to the reference guide being created as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Doctor's Name</span><input class="doctorName" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
             <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
             <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
 
         <p class="header finish-header">Convenience Care & Urgent Care Centers</p>
-        <p>Here is the convenience/urgent care center you provided. Feel free to edit, if needed prior to the reference guide being printed as the next step.</p>
+        <p>Feel free to edit, if needed prior to the reference guide being created as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
             <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
             <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
@@ -333,7 +333,7 @@
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
-                    src="/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png"
+                    src="/assets/members/public/BCBSNC-logo-1.png"
                     style="width: 300px;height: 40px;margin-left: 150px;"
                     alt="BlueConnect">
             </div>
@@ -500,7 +500,7 @@
             <!-- Footer -->
             <div style="background-color: white;margin-bottom: 0px;">
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
-                    <div style="width: 95%;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive">
+                    <div style="width: 95%;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                         Remember: If you have an issue that threatens your life or health, never wait.
                         Call 911 or go straight to the emergency room.
                     </div>
@@ -518,7 +518,7 @@
                         <div>
                             Learn more about your opinions at 
                             <a href="https://www.bluecrossnc.com/TheRightPlace" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightPlace</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
                             </a>
                             <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
                                 <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/OptionsForCare</span>
@@ -573,7 +573,7 @@
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
-                    src="/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png"
+                    src="/assets/members/public/BCBSNC-logo-1.png"
                     style="width: 300px;height: 40px;margin-left: 150px;"
                     alt="BlueConnect">
             </div>

@@ -138,11 +138,11 @@
 
 :root:before {
   content: url("/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png")
-           url("/assets/members/secure/apps/erusurvey/images/MDLIVE-icon@2x.png")
-           url("/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon@2x.png")
-           url("/assets/members/secure/apps/erusurvey/images/Teladoc-icon@2x.png")
-           url("/assets/members/secure/apps/erusurvey/images/Teladoc-computer-icon@2x.png")
-           url("/assets/members/secure/apps/erusurvey/images/online-mouse-icon@2x.png");
+           url("/assets/members/secure/apps/erusurvey/images/MDLIVE-icon.png")
+           url("/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon.png")
+           url("/assets/members/secure/apps/erusurvey/images/Teladoc-icon.png")
+           url("/assets/members/secure/apps/erusurvey/images/Teladoc-computer-icon.png")
+           url("/assets/members/secure/apps/erusurvey/images/online-mouse-icon.png");
   visibility: hidden;
   position: absolute;
   left: -999em;

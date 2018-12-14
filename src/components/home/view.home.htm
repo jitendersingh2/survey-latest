@@ -396,7 +396,7 @@
                 </div>
             </div>
             <!-- Telehealth + MDLive -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">MDLIVE<sup style="font-size: 12px;">&#174;</sup> (TELEHEALTH)</div>
                     <div style="font-size: 14px;margin-bottom: 5px;">
@@ -440,9 +440,9 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is <span style="margin-left: 17px;">booked up</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Telehealth Generic -->
-            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy">
+            <div style="display: inline-flex;background-color: aliceblue;margin-bottom: 5px;padding: 2px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">TELEHEALTH</div>
                     <div style="font-size: 14px;margin-bottom: 5px;">
@@ -466,7 +466,7 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care on nights, weekends or when your doctor is <span style="margin-left: 17px;">booked up</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Urgent Care -->
             <div style="display: inline-flex;background-color: aliceblue;padding: 2px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
@@ -496,7 +496,7 @@
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is <span style="margin-left: 17px;">closed</span></p>
                 </div>
             </div>
-            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
+            <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
             <!-- Footer -->
             <div style="background-color: white;margin-bottom: 0px;">
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
@@ -504,7 +504,7 @@
                         Remember: If you have an issue that threatens your life or health, never wait.
                         Call 911 or go straight to the emergency room.
                     </div>
-                    <div style="width: 95%;margin-bottom: 40px;" ng-if="!surveyScope.isMemberHasHealthLineBlue || surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive">
+                    <div style="width: 95%;margin-bottom: 40px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
                         Remember: If you have an issue that threatens your life or health, never wait.
                         Call 911 or go straight to the emergency room.
                     </div>
@@ -517,10 +517,10 @@
                         </div>
                         <div>
                             Learn more about your opinions at 
-                            <a href="https://www.bluecrossnc.com/TheRightPlace" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive">
+                            <a href="https://www.bluecrossnc.com/TheRightPlace" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                                 <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightPlace</span>
                             </a>
-                            <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="surveyScope.isMemberHasTeleHealth && !surveyScope.isMemberHasMdLive">
+                            <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
                                 <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/OptionsForCare</span>
                             </a>
                         </div>

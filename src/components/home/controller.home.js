@@ -29,9 +29,7 @@
         self.isMemberHasTeleHealth = false;
         self.isMemberHasHealthLineBlue = false;
         self.isMemberHasMdLive = false;
-        self.isMemberHasTelaDoc = false;
         self.isMemberHasFullyInsuredGroupPolicy = false;
-        self.isMemberHasASOPolicy = false;
         /*
         * 
         */
@@ -58,9 +56,7 @@
             self.isMemberHasTeleHealth = userInfo.telehealth === "true" ? true : false;
             self.isMemberHasHealthLineBlue = userInfo.healthLineBlue === "true" ? true : false;
             self.isMemberHasMdLive = userInfo.mdLive === "true" ? true : false;
-            self.isMemberHasTelaDoc = userInfo.telaDoc === "true" ? true : false;
             self.isMemberHasFullyInsuredGroupPolicy = userInfo.fullyInsuredGroup === "true" ? true : false;
-            self.isMemberHasASOPolicy = userInfo.aso === "true" ? true : false;
           }, function(error) {
             console.log('error- ', error);
           });
@@ -478,7 +474,7 @@
           var printedContentId1 = 'printedCustimizedGuide1';
           var doc = document.getElementById(documentId);
           var printedContent;
-          if (self.isMemberHasHealthLineBlue && !self.isMemberHasTeleHealth) {
+          if (!self.isMemberHasTeleHealth) {
             printedContent = document.getElementById(printedContentId1).innerHTML;
           } else {
             printedContent = document.getElementById(printedContentId0).innerHTML;

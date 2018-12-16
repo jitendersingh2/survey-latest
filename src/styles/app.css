@@ -61,8 +61,11 @@
 #survey-first-ques-container .required-label {
   color: #169bd5;
 }
+#survey-first-ques-container .doctorName, #survey-first-ques-container .careCenterNameAndLocation {
+  margin-left: 55px!important;
+}
 #survey-first-ques-container .doctorPhoneNumber {
-  margin-left: 49px!important;
+  margin-left: 54px!important;
 }
 #survey-first-ques-container .officeHours {
   margin-left: 69px!important;
@@ -137,7 +140,7 @@
 }
 
 :root:before {
-  content: url("/assets/members/public/BCBSNC-logo-1.png")
+  content: url("/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png")
            url("/assets/members/secure/apps/erusurvey/images/MDLIVE-icon.png")
            url("/assets/members/secure/apps/erusurvey/images/MDLIVE-computer-icon.png")
            url("/assets/members/secure/apps/erusurvey/images/Teladoc-icon.png")

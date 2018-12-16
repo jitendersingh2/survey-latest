@@ -483,7 +483,9 @@
           doc.contentWindow.document.body.innerHTML = printedContent;
 
           doc.contentWindow.focus();
-          doc.contentWindow.print();
+          setTimeout(function() {
+            doc.contentWindow.print();
+          }, 0);
         };
 
 

@@ -26,7 +26,7 @@
   font-weight: bold;
 }
 #survey-first-ques-container .header-content {
-  font-size: 13px;
+  font-size: 15px;
 }
 #survey-first-ques-container .sub-header {
   font-size: 30px;
@@ -62,22 +62,31 @@
   color: #169bd5;
 }
 #survey-first-ques-container .doctorName, #survey-first-ques-container .careCenterNameAndLocation {
-  margin-left: 55px!important;
+  margin-left: 50px!important;
 }
 #survey-first-ques-container .doctorPhoneNumber {
   margin-left: 54px!important;
 }
+#survey-first-ques-container .doctorPhoneNumber-2 {
+  margin-left: 50px!important;
+}
 #survey-first-ques-container .officeHours {
-  margin-left: 69px!important;
+  margin-left: 72px!important;
+}
+#survey-first-ques-container .officeHours-2 {
+  margin-left: 68px!important;
 }
 #survey-first-ques-container .afterHoursNumber {
-  margin-left: 25px!important;
+  margin-left: 28px!important;
+}
+#survey-first-ques-container .afterHoursNumber-2 {
+  margin-left: 28px!important;
 }
 #survey-first-ques-container .careCenterPhoneNumber {
-  margin-left: 55px!important;
+  margin-left: 60px!important;
 }
 #survey-first-ques-container .careCenterOpeningHours {
-  margin-left: 107px!important;
+  margin-left: 112px!important;
 }
 #survey-first-ques-container input[type='checkbox'] {
   margin-bottom: 10px;

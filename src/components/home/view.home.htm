@@ -94,8 +94,8 @@
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             
             <form ng-submit="surveyScope.next3($event)">
-                <span class="input-text-label">Doctor's Name</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-                <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
@@ -165,7 +165,7 @@
             <br>
             <p>
                 <a href="/members/secure/doctors/search.htm" target="_blank">
-                    Open a new browser tab to find in-network doctors close to you.
+                    Open a new browser tab to find nearby urgent care centers.
                 </a>
                 You can always find urgent care centers wherever<br> you are by using the Blue Cross NC mobile app. Once you’ve chosen an urgent care center, add their<br> information to the Quick Reference Guide that you get after this survey.
             </p>
@@ -181,7 +181,7 @@
             <p>Fill in that urgent care center’s details here — and we’ll add it to the Quick Reference Guide that you get after this<br> survey.</p>
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             <form ng-submit="surveyScope.next5($event)">
-                <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
                 <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
                 <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
@@ -286,11 +286,11 @@
         <p>Feel free to edit, if needed prior to the reference guide being created as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Doctor's Name</span><input class="doctorName" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Doctor's Name</span><input class="doctorName-2" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber-2" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
-            <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Office Hours</span><input class="officeHours-2" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber-2" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
 
         <p class="header finish-header">Convenience Care & Urgent Care Centers</p>
@@ -298,9 +298,9 @@
         <br>
         <form>
             <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber-2" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)"><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <span class="input-text-label">Hours</span><input class="careCenterOpeningHours-2" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
         </form>
         <br>
 
@@ -331,9 +331,9 @@
     <div id="printedCustimizedGuide0" style="display: none;">
         <div style="font-family: Arial;margin-top: -10px;-webkit-print-color-adjust: exact;">
             <div class="first-header" style="display: inline-flex;">
-                <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
+                <div class="header-title-0" style="font-size: 20px;color: #04506e;font-weight: 600;">Quick Reference Guide</div>
                 <img
-                    src="/assets/members/public/BCBSNC-logo-1.png"
+                    src="/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png"
                     style="width: 300px;height: 40px;margin-left: 150px;"
                     alt="BlueConnect">
             </div>
@@ -362,8 +362,8 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If it's not a life threatening emergency, your doctor is usually the best option.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have an illness, injury, pain or health issue</p>
@@ -377,7 +377,7 @@
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">HEALTH LINE BLUE<sup style="font-size: 12px;">SM</sup></div>
                     <div style="font-size: 14px;margin-bottom: 0px;">
-                        YOUR GO-TO EXPERTS. <span style="font-size: 12px;">Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
+                        YOUR GO-TO EXPERTS. <span style="font-size: 12px;">Get answers to your health question fast, free and 24/7. A nurse can help you get relief and treat
                         symptoms at home, or direct you to the care you need. Save this number in phone for easy access!</span>
                     </div>
                     <div style="font-weight: 600;margin-bottom: -5px;"><span style="font-size: 16px;">1-877-477-2424</span> (toll-free, available 24/7)</div>
@@ -386,8 +386,8 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A great first call when you think you need care right away.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px;color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
@@ -431,8 +431,8 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A fast, cost-effective way to get care when common health problems strike.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>USE IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a minor issue like a cold, the flu or pink eye</p>
@@ -449,16 +449,15 @@
                         24/7 DOCTOR ACCESS. <span style="font-size: 12px;">Get a video consult with a board-certified doctor on your smartphone, tablet or PC. No appointment needed!</span>
                     </div>
                     <div style="font-size: 14px;margin-bottom: -5px;">
-                        Check the back of your member ID card or benefit booklet for your telehealth provider's information
-                        (It will be either "MDLIVE" or "Teladoc"). Be sure to download their mobile app, too.
+                        Check the back of your member ID card or benefit booklet for your telehealth provider's information. Look for the reference to MDLIVE or Teladoc. Be sure to download their mobile app, too.
                     </div>
                 </div>
                 <div style="font-size: 12px;padding: 5px;width: 50%">
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A fast, cost-effective way to get care when common health problems strike.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        USE IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>USE IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a minor issue like a cold, the flu, allergies or pink eye</p>
@@ -472,8 +471,14 @@
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 0px;">URGENT CARE</div>
                     <div style="font-size: 14px;margin-bottom: -30px;">
-                        YOUR BACK UP OPTION. Urgent care center can be a time and money-saver when you have non-life-threatening illnesses or
-                        injuries-but you are not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
+                        YOUR BACK-UP OPTION. 
+                        <span style="font-size: 12px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                            Urgent care centers can be a time- and money- saver when you have non-life-threatening illnesses or injuries. 
+                        </span>
+                        <span style="font-size: 12px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                            Urgent care centers can be a time- and money-saver when you have non-life-threatening illnesses or
+                            injuries-but you're not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
+                        </span>
                     </div><br>
                     <p style="margin-bottom: -10px;">
                         <span class="input-text-label">Name/Location: </span> <span style="display: inline-block;width: 61.8%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLoc }}</span>
@@ -487,13 +492,22 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If your doctor can't see you today or the office is closed, urgent care is an option for issues that can't wait.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Can't wait until your doctor is available to treat you</p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a sudden injury and need a walk-in appointment</p>
-                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and your doctor is <span style="margin-left: 17px;">closed</span></p>
+                    <p style="margin-bottom: -10px;">
+                        <span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;
+                            <span ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                                Need care after-hours or on weekends
+                            </span>
+                            <span ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
+                                Need care after-hours or on weekends and your doctor is <span style="margin-left: 17px;">closed
+                            </span>
+                        </span>
+                    </p>
                 </div>
             </div>
             <div style="margin-bottom: 20px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy"></div>
@@ -502,11 +516,11 @@
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
                     <div style="width: 95%;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
                         Remember: If you have an issue that threatens your life or health, never wait.
-                        Call 911 or go straight to the emergency room.
+                        Call 911 or go straight to the emergency room!
                     </div>
                     <div style="width: 95%;margin-bottom: 40px;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
                         Remember: If you have an issue that threatens your life or health, never wait.
-                        Call 911 or go straight to the emergency room.
+                        Call 911 or go straight to the emergency room!
                     </div>
                     <div style="display: inline-flex;">
                         <div style="margin-left: 5px;margin-right: 10px;">
@@ -518,17 +532,17 @@
                         <div>
                             Learn more about your options at 
                             <a href="https://www.bluecrossnc.com/TheRightPlace" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasTeleHealth && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/TheRightCare</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;"><b>BlueCrossNC.com/TheRightCare<b></span>
                             </a>
                             <a href="https://www.bluecrossnc.com/OptionsForCare" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasFullyInsuredGroupPolicy || !surveyScope.isMemberHasFullyInsuredGroupPolicy">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/OptionsForCare</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;"><b>BlueCrossNC.com/OptionsForCare<b></span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
-                    <b>This is not a medical advice. Consult a medical professional and seek assistance in an emergency.</b>
+                    <b>This is not medical advice. Consult a medical professional and seek assistance in an emergency.</b>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue && surveyScope.isMemberHasMdLive && surveyScope.isMemberHasFullyInsuredGroupPolicy">
@@ -573,7 +587,7 @@
             <div class="first-header" style="display: inline-flex;">
                 <div class="header-title-0" style="font-size: 20px;color: lightseagreen;font-weight: 600;">Quick Reference Guide</div>
                 <img
-                    src="/assets/members/public/BCBSNC-logo-1.png"
+                    src="/assets/members/secure/apps/erusurvey/images/BCBSNC-logo-1.png"
                     style="width: 300px;height: 40px;margin-left: 150px;"
                     alt="BlueConnect">
             </div>
@@ -587,24 +601,24 @@
                         YOUR HEALTH CARE PARTNER. Your regular doctor knows your health history—often resulting in better care over time and better prevention of health problems in the future. You’ll generally save money, time and hassle as well.
                     </div>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorName }}</span>
+                        <span class="input-text-label">Name: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.docName }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 80%;border-bottom: 1px solid darkgrey;">{{ surveyScope.doctorPhoneNumber }}</span>
+                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 80%;border-bottom: 1px solid darkgrey;">{{ surveyScope.docPhoneNumber }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHours }}</span>
+                        <span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 81.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.officeHrs }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
-                        <span class="input-text-label">After-Hours #: </span> <span style="display: inline-block;width: 66.25%;border-bottom: 1px solid darkgrey;">{{ surveyScope.afterHoursNumber }}</span>
+                        <span class="input-text-label">After-Hours #: </span> <span style="display: inline-block;width: 66.25%;border-bottom: 1px solid darkgrey;">{{ surveyScope.afterHrsNo }}</span>
                     </p>
                 </div>
                 <div style="padding: 5px;width: 50%">
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If it's not a life threatening emergency, your doctor is usually the best option.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have an illness, injury, pain or health issue</p>
@@ -618,7 +632,7 @@
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 5px;">HEALTH LINE BLUE<sup style="font-size: 12px;">SM</sup></div>
                     <div style="font-size: 14px;">
-                        YOUR GO-TO EXPERTS. Get answers to your health question fast, freaa and 24/7. A nurse can help you get relief and treat
+                        YOUR GO-TO EXPERTS. Get answers to your health question fast, free and 24/7. A nurse can help you get relief and treat
                         symptoms at home, or direct you to the care you need. Save this number in phone for easy access!
                     </div>
                     <h3 style="font-weight: 600;margin-bottom: -15px;">1-877-477-2424 (toll-free)</h3>
@@ -628,8 +642,8 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A great first call when you think you need care right away.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Aren't you sure where to go</p>
@@ -659,8 +673,8 @@
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         A fast, cost-effective way to get care when common health problems strike.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a minor health issue like a cold, the <span style="margin-left: 22px;">flu or a urinary tract infection</span></p>
@@ -668,34 +682,33 @@
                 </div>
             </div>
             <!-- Urgent Care -->
-            <div style="display: inline-flex;background-color: aliceblue;padding: 5px;">
+            <div style="display: inline-flex;background-color: aliceblue;padding: 5px;margin-bottom: 5px;">
                 <div style="background-color: white;padding: 5px;width: 50%;margin: 5px;">
                     <div style="font-size: 24px;color: #04506e;font-weight: 700;margin-bottom: 5px;">URGENT CARE</div>
                     <div style="font-size: 14px;margin-bottom: -15px;">
-                        YOUR BACK UP OPTION. Urgent care center can be a time and money-saver when you have non-life-threatening illnesses or
-                        injuries-but you are not able to visit your doctor. Ideal for walk-ins, after-hours and weekends.
+                        YOUR BACK-UP OPTION. Urgent care centers can be a time- and money-saver when you have non-life-threatening illnesses or injuries.
                     </div><br>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Name/Location: </span> <span style="display: inline-block;width: 63.3%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLocation }}</span>
+                        <span class="input-text-label">Name/Location: </span> <span style="display: inline-block;width: 63.3%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterNameAndLoc }}</span>
                     </p>
                     <p style="margin-bottom: -10px;">
-                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 81%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterPhoneNumber }}</span>
+                        <span class="input-text-label">Phone: </span> <span style="display: inline-block;width: 81%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterPhNo }}</span>
                     </p>
                     <p style="margin-bottom: -5px;">
-                        <span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 82.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterOpeningHours }}</span>
+                        <span class="input-text-label">Hours: </span> <span style="display: inline-block;width: 82.2%;border-bottom: 1px solid darkgrey;">{{ surveyScope.careCenterOpeningHrs }}</span>
                     </p>
                 </div>
                 <div style="padding: 5px;width: 50%">
                     <div style="font-size: 16px;color: #04506e;font-weight: 700;margin-bottom: 5px;">
                         If your doctor can't see you today or the office is closed, urgent care is an option for issues that can't wait.
                     </div>
-                    <div style="font-size: 14px;margin-bottom: -5px;">
-                        CALL IF YOU:
+                    <div style="font-size: 14px;margin-bottom: -5px; color: #04506e;">
+                        <b>CALL IF YOU:</b>
                     </div>
                     <p style="border-bottom: 1px solid skyblue;margin-bottom: -5px;"></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Can't wait until your doctor is available to <span style="margin-left: 22px;">treat you</span></p>
                     <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Have a sudden injury and need a walk-in <span style="margin-left: 22px;">appointment</span></p>
-                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends and <span style="margin-left: 22px;">your doctor is closed</span></p>
+                    <p style="margin-bottom: -10px;"><span style="color: skyblue;">&#43;</span>&nbsp;&nbsp;&nbsp;Need care after-hours or on weekends</span></p>
                 </div>
             </div>
             <!-- Footer -->
@@ -703,7 +716,7 @@
                 <div style="display: inline-flex;font-size: 14px;width: 100%;margin: 10px;">
                     <div style="width: 95%;">
                         Remember: If you have an issue that threatens your life or health, never wait.
-                        Call 911 or go straight to the emergency room.
+                        Call 911 or go straight to the emergency room!
                     </div>
                     <div style="display: inline-flex;">
                         <div style="margin-left: 5px;margin-right: 10px;">
@@ -715,17 +728,17 @@
                         <div>
                             Learn more about your options at 
                             <a href="https://www.bluecrossnc.com/WhereToGo" style="text-decoration: none;" ng-if="surveyScope.isMemberHasHealthLineBlue">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/WhereToGO</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;"><b>BlueCrossNC.com/WhereToGO<b></span>
                             </a>
                             <a href="https://www.bluecrossnc.com/LearnCareOptions" style="text-decoration: none;" ng-if="!surveyScope.isMemberHasHealthLineBlue">
-                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;">BlueCrossNC.com/LearnCareOptions</span>
+                                <span style="font-size: 16px;font-style: italic;color: skyblue;font-weight: 700;"><b>BlueCrossNC.com/LearnCareOptions<b></span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;">
-                    <b>This is not a medical advice. Consult a medical professional and seek assistance in an emergency.</b>
+                    <b>This is not medical advice. Consult a medical professional and seek assistance in an emergency.</b>
                 </div>
 
                 <div style="margin-left: 10px;margin-right: 10px;margin-top: -5px;" ng-if="surveyScope.isMemberHasHealthLineBlue">

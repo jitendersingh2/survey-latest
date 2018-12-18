@@ -251,7 +251,7 @@
             self.healthLineBluePage = true;
             return true;
           }
-          self.handleFormValue();
+          self.handleFormValue('next');
           self.rewardPage = true;
         };
 
@@ -311,7 +311,7 @@
             self.healthLineBluePage = true;
             return true;
           }
-          self.handleFormValue();
+          self.handleFormValue('next');
           self.rewardPage = true;
         };
 
@@ -364,7 +364,7 @@
             self.formError = true;
             return true;
           }
-          self.handleFormValue();
+          self.handleFormValue('next');
           self.hideSubmitBtn = self.healthLineBluePage = false;
           self.rewardPage = true;
         };
@@ -382,25 +382,6 @@
         * Rewards
         */
 
-        self.handleFormValue = function() {
-          if (self.secondAnsweredYes) {
-            self.docName = self.doctorName;
-            self.docPhoneNumber = self.doctorPhoneNumber;
-            self.officeHrs = self.officeHours;
-            self.afterHrsNo = self.afterHoursNumber;
-          } else {
-            self.docName = self.docPhoneNumber = self.officeHrs = self.afterHrsNo = '';
-          }
-
-          if (self.fourthAnsweredYes) {
-            self.careCenterNameAndLoc = self.careCenterNameAndLocation;
-            self.careCenterPhNo = self.careCenterPhoneNumber;
-            self.careCenterOpeningHrs = self.careCenterOpeningHours;
-          } else {
-            self.careCenterNameAndLoc = self.careCenterPhNo = self.careCenterOpeningHrs = '';
-          }
-        };
-
         self.previous6 = function (e) {
           self.rewardPage = false;
           if (self.isMemberHasHealthLineBlue) {
@@ -416,6 +397,8 @@
 
           self.fourthQPage = true;
           self.hideSubmitBtn = self.fourthAnsweredYes = self.fourthAnsweredNo = false;
+
+          self.handleFormValue('prev');
         };
 
         self.printCustomizedGuide = function() {
@@ -444,7 +427,7 @@
               },
               {
                 "name":"haveRegulardoctorForRoutineCheckups",
-                "value":self.secondAnswer === 'YES' ? "YES,'DoctorName':"+"'"+self.doctorName+"',"+"'PhoneNumber':"+"'"+self.doctorPhoneNumber+"',"+"'OfficeHours':"+"'"+self.officeHours+"',"+"'AfterOurHours':"+"'"+self.afterHoursNumber+"'" : 'NO'
+                "value":self.secondAnswer === 'YES' ? "YES,'DoctorName':"+"'"+self.docName+"',"+"'PhoneNumber':"+"'"+self.docPhoneNumber+"',"+"'OfficeHours':"+"'"+self.officeHrs+"',"+"'AfterOurHours':"+"'"+self.afterHrsNo+"'" : 'NO'
               },
               {
                 "name":"whyGoToConvenienceCareOrUrgentCareCenter",
@@ -452,7 +435,7 @@
               },
               {
                 "name":"whichUrgentcareCenterClosestToYourHome",
-                "value": self.fourthAnswer === 'YES' ? "YES,'NameLocation':"+"'"+self.careCenterNameAndLocation+"',"+"'PhoneNumber':"+"'"+self.careCenterPhoneNumber+"',"+"'Hours':"+"'"+self.careCenterOpeningHours+"'" : 'NO'
+                "value": self.fourthAnswer === 'YES' ? "YES,'NameLocation':"+"'"+self.careCenterNameAndLoc+"',"+"'PhoneNumber':"+"'"+self.careCenterPhNo+"',"+"'Hours':"+"'"+self.careCenterOpeningHrs+"'" : 'NO'
               },
               {
                 "name":"healthIssuesHandledByTelehealthConsultant",
@@ -485,7 +468,7 @@
           doc.contentWindow.focus();
           setTimeout(function() {
             doc.contentWindow.print();
-          }, 0);
+          }, 1000);
         };
 
 
@@ -494,6 +477,50 @@
         */
         self.onInputChange = function(e) {
           self[e.target.name] = e.target.value;
+        };
+
+        self.handleFormValue = function(flow) {
+          if (flow === 'prev') {
+            if (self.secondAnsweredYes) {
+              self.doctorName = self.docName;
+              self.doctorPhoneNumber = self.docPhoneNumber;
+              self.officeHours = self.officeHrs;
+              self.afterHoursNumber = self.afterHrsNo;
+            } else {
+              self.doctorName = self.docName !== '' ? self.docName : self.doctorName;
+              self.doctorPhoneNumber = self.docPhoneNumber !== '' ? self.docPhoneNumber : self.doctorPhoneNumber;
+              self.officeHours = self.officeHrs !== '' ? self.officeHrs : self.officeHours;
+              self.afterHoursNumber = self.afterHrsNo !== '' ? self.afterHrsNo : self.afterHoursNumber;
+            }
+            if (self.fourthAnsweredYes) {
+              self.careCenterNameAndLocation = self.careCenterNameAndLoc;
+              self.careCenterPhoneNumber = self.careCenterPhNo;
+              self.careCenterOpeningHours = self.careCenterOpeningHrs;
+            } else {
+              self.careCenterNameAndLocation = self.careCenterNameAndLoc !== '' ? self.careCenterNameAndLoc : self.careCenterNameAndLocation;
+              self.careCenterPhoneNumber = self.careCenterPhNo !== '' ? self.careCenterPhNo : self.careCenterPhoneNumber;
+              self.careCenterOpeningHours = self.careCenterOpeningHrs !== '' ? self.careCenterOpeningHrs : self.careCenterOpeningHours;
+            }
+
+            return true;
+          }
+
+          if (self.secondAnsweredYes) {
+            self.docName = self.doctorName;
+            self.docPhoneNumber = self.doctorPhoneNumber;
+            self.officeHrs = self.officeHours;
+            self.afterHrsNo = self.afterHoursNumber;
+          } else {
+            self.docName = self.docPhoneNumber = self.officeHrs = self.afterHrsNo = '';
+          }
+
+          if (self.fourthAnsweredYes) {
+            self.careCenterNameAndLoc = self.careCenterNameAndLocation;
+            self.careCenterPhNo = self.careCenterPhoneNumber;
+            self.careCenterOpeningHrs = self.careCenterOpeningHours;
+          } else {
+            self.careCenterNameAndLoc = self.careCenterPhNo = self.careCenterOpeningHrs = '';
+          }
         };
 
         self.isPhoneNumberValid = function (phoneNumber, idx) {

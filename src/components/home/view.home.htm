@@ -94,11 +94,19 @@
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             
             <form ng-submit="surveyScope.next3($event)">
-                <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-                <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Doctor's Name*</span><input class="doctorName" name="doctorName" type="text" ng-model="surveyScope.doctorName" ng-keyup="surveyScope.onInputChange($event)" required="true">
+                </div><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Phone Number*</span><input class="doctorPhoneNumber" type="text" name="doctorPhoneNumber" ng-model="surveyScope.doctorPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true">
+                </div><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
-                <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)"><br>
-                <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Office Hours</span><input class="officeHours" type="text" name="officeHours" ng-model="surveyScope.officeHours" ng-keyup="surveyScope.onInputChange($event)">
+                </div><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber" type="text" name="afterHoursNumber" ng-model="surveyScope.afterHoursNumber" ng-keyup="surveyScope.onInputChange($event)">
+                </div><br>
                 <p class="input-text-label required-label">*Required</p><br>
                 <div class="btn-container">
                     <button type="button" class="prev-btn"  ng-click="surveyScope.previous1($event)">Previous</button>
@@ -181,10 +189,16 @@
             <p>Fill in that urgent care center’s details here — and we’ll add it to the Quick Reference Guide that you get after this<br> survey.</p>
             <p>(<a href="/members/secure/doctors/search.htm" target="_blank">Open a new browser to look it up if needed.</a>)</p><br>
             <form ng-submit="surveyScope.next5($event)">
-                <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-                <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Name/Location*</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLocation" ng-model="surveyScope.careCenterNameAndLocation" ng-keyup="surveyScope.onInputChange($event)" required="true">
+                </div><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber" type="text" name="careCenterPhoneNumber" ng-model="surveyScope.careCenterPhoneNumber" ng-keyup="surveyScope.onInputChange($event)">
+                </div><br>
                 <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
-                <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)"><br>
+                <div class="input-text-container">
+                    <span class="input-text-label">Hours</span><input class="careCenterOpeningHours" type="text" name="careCenterOpeningHours" ng-model="surveyScope.careCenterOpeningHours" ng-keyup="surveyScope.onInputChange($event)">
+                </div><br>
                 <p class="input-text-label required-label">*Required</p><br>
                 <div class="btn-container">
                     <button type="button" class="prev-btn" ng-click="surveyScope.previous3($event)">Previous</button>
@@ -286,21 +300,35 @@
         <p>Feel free to edit, if needed prior to the reference guide being created as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Doctor's Name</span><input class="doctorName-2" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber-2" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Doctor's Name</span><input class="doctorName-2" name="docName" type="text" ng-model="surveyScope.docName" ng-keyup="surveyScope.onInputChange($event)" required="true">
+            </div><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Phone Number</span><input class="doctorPhoneNumber-2" type="text" name="docPhoneNumber" ng-model="surveyScope.docPhoneNumber" ng-keyup="surveyScope.onInputChange($event)" required="true">
+            </div><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError0">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Office Hours</span><input class="officeHours-2" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
-            <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber-2" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Office Hours</span><input class="officeHours-2" type="text" name="officeHrs" ng-model="surveyScope.officeHrs" ng-keyup="surveyScope.onInputChange($event)">
+            </div><br>
+            <div class="input-text-container">
+                <span class="input-text-label">After-Hours Number</span><input class="afterHoursNumber-2" type="text" name="afterHrsNo" ng-model="surveyScope.afterHrsNo" ng-keyup="surveyScope.onInputChange($event)">
+            </div><br>
         </form>
 
         <p class="header finish-header">Convenience Care & Urgent Care Centers</p>
         <p>Feel free to edit, if needed prior to the reference guide being created as the next step.</p>
         <br>
         <form>
-            <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true"><br>
-            <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber-2" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Name/Location</span><input class="careCenterNameAndLocation" type="text" name="careCenterNameAndLoc" ng-model="surveyScope.careCenterNameAndLoc" ng-keyup="surveyScope.onInputChange($event)" required="true">
+            </div><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Phone Number</span><input class="careCenterPhoneNumber-2" type="text" name="careCenterPhNo" ng-model="surveyScope.careCenterPhNo" ng-keyup="surveyScope.onInputChange($event)">
+            </div><br>
             <p class="form-error phone-number-error" ng-if="surveyScope.phoneNumberError1">Please enter a valid phone number<br></p>
-            <span class="input-text-label">Hours</span><input class="careCenterOpeningHours-2" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)"><br>
+            <div class="input-text-container">
+                <span class="input-text-label">Hours</span><input class="careCenterOpeningHours-2" type="text" name="careCenterOpeningHrs" ng-model="surveyScope.careCenterOpeningHrs" ng-keyup="surveyScope.onInputChange($event)">
+            </div><br>
         </form>
         <br>
 

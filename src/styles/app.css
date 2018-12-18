@@ -61,33 +61,6 @@
 #survey-first-ques-container .required-label {
   color: #169bd5;
 }
-#survey-first-ques-container .doctorName, #survey-first-ques-container .careCenterNameAndLocation {
-  margin-left: 50px!important;
-}
-#survey-first-ques-container .doctorPhoneNumber {
-  margin-left: 54px!important;
-}
-#survey-first-ques-container .doctorPhoneNumber-2 {
-  margin-left: 50px!important;
-}
-#survey-first-ques-container .officeHours {
-  margin-left: 72px!important;
-}
-#survey-first-ques-container .officeHours-2 {
-  margin-left: 68px!important;
-}
-#survey-first-ques-container .afterHoursNumber {
-  margin-left: 28px!important;
-}
-#survey-first-ques-container .afterHoursNumber-2 {
-  margin-left: 28px!important;
-}
-#survey-first-ques-container .careCenterPhoneNumber {
-  margin-left: 60px!important;
-}
-#survey-first-ques-container .careCenterOpeningHours {
-  margin-left: 112px!important;
-}
 #survey-first-ques-container input[type='checkbox'] {
   margin-bottom: 10px;
   zoom: 1.2;
@@ -99,13 +72,17 @@
 #survey-first-ques-container input[type='text'] {
   margin-bottom: 10px;
   width: 320px;
-  margin-left: 50px;
+}
+#survey-first-ques-container .input-text-container {
+  display: inline-flex;
+  width: 466.5px;
+  justify-content: space-between;
 }
 #survey-first-ques-container .form-error {
   color: red;
 }
 #survey-first-ques-container .phone-number-error {
-  margin-left: 140px;
+  margin-left: 146px;
 }
 #survey-first-ques-container .btn-container {
   margin-top: 20px;
